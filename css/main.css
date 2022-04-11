@@ -15,20 +15,50 @@ td {
     margin: 0;
 }*/
 
-#mainbody {
+body {
+    background: lightgrey;
+}
+
+.mainbody {
     display: flex;
-    background-color: green;
+    flex-direction: row;
+    background-color: yellow;
     width: 75%;
-    height: 60px;
+    height: 500px;
     justify-content: space-evenly;
-    align-items: center;
+    margin: 100px auto;
+    padding: 10px;
 }
 
 .circle {
-    display: inline-flex;
     border-radius: 50%;
-    height: 85%;
-    width: 10%;
-    background-color: red;
-    flex-basis: 1:
+    height: 15%;
+    width: 100%;
+    background-color: white;
 }
+
+.column2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 11%;
+}
+
+.leftsupport { 
+    background: blue;
+    position: absolute;
+    left: 11%;
+    top: 50%;
+    height: 30%;
+    width: 20px;
+}
+
+.rightsupport { 
+    background: blue;
+    position: absolute;
+    left: 87%;
+    top: 50%;
+    height: 30%;
+    width: 20px;
+}
+
