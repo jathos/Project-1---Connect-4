@@ -58,3 +58,14 @@ button {
     padding: 20px 10px 0 10px;
     justify-content: space-evenly;
 }
+
+#wincontainer {
+    background: black;
+}
+
+#winmessage {
+    color: white;
+    position: relative;
+    top: 50%;
+    left: 33%;
+}
