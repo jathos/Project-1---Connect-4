@@ -74,25 +74,98 @@ let playerBlueMoves = [];
 
 //******WORKING FUNCTIONS********
 
-//these event listeners will add "chips" into each circle on the board when the corresponding column button is pushed
+//this code will add alternating color "chips" into each circle (ex is for button1)
 // button1.addEventListener('click', function() {
 //     alternatePlayer();
 //     a1.style.backgroundColor = playerTurn;
 // });
 
-// button2.addEventListener('click', function() {
-//     alternatePlayer();
-//     b1.style.backgroundColor = playerTurn;
-// });
+//this code allows the chips to stack on top of each other (ex is for columnA)
+//     columnA[columnAHeight].style.backgroundColor = playerTurn;
+//     ++columnAHeight;
 
- //this function logs the move that the player just selected
- function logPlayerMove() {
+//these function log the move that the player just selected, then sorts the playermove array
+ function logPlayerMoveColumnA() {
     if (playerTurn == "red") {
         let moveChosen = columnA[columnAHeight].getAttribute('id');
         playerRedMoves.push(moveChosen);
+        playerRedMoves.sort();
     } else {
         let moveChosen = columnA[columnAHeight].getAttribute('id');
         playerBlueMoves.push(moveChosen);
+        playerBlueMoves.sort();
+    }
+};
+
+ function logPlayerMoveColumnB() {
+    if (playerTurn == "red") {
+        let moveChosen = columnB[columnBHeight].getAttribute('id');
+        playerRedMoves.push(moveChosen);
+        playerRedMoves.sort();
+    } else {
+        let moveChosen = columnB[columnBHeight].getAttribute('id');
+        playerBlueMoves.push(moveChosen);
+        playerBlueMoves.sort();
+    }
+};
+
+ function logPlayerMoveColumnC() {
+    if (playerTurn == "red") {
+        let moveChosen = columnC[columnCHeight].getAttribute('id');
+        playerRedMoves.push(moveChosen);
+        playerRedMoves.sort();
+    } else {
+        let moveChosen = columnC[columnCHeight].getAttribute('id');
+        playerBlueMoves.push(moveChosen);
+        playerBlueMoves.sort();
+    }
+};
+
+ function logPlayerMoveColumnD() {
+    if (playerTurn == "red") {
+        let moveChosen = columnD[columnDHeight].getAttribute('id');
+        playerRedMoves.push(moveChosen);
+        playerRedMoves.sort();
+    } else {
+        let moveChosen = columnD[columnDHeight].getAttribute('id');
+        playerBlueMoves.push(moveChosen);
+        playerBlueMoves.sort();
+    }
+};
+
+ function logPlayerMoveColumnE() {
+    if (playerTurn == "red") {
+        let moveChosen = columnE[columnEHeight].getAttribute('id');
+        playerRedMoves.push(moveChosen);
+        playerRedMoves.sort();
+    } else {
+        let moveChosen = columnE[columnEHeight].getAttribute('id');
+        playerBlueMoves.push(moveChosen);
+        playerBlueMoves.sort();
+    }
+};
+
+ function logPlayerMoveColumnF() {
+    if (playerTurn == "red") {
+        let moveChosen = columnF[columnFHeight].getAttribute('id');
+        playerRedMoves.push(moveChosen);
+        playerRedMoves.sort();
+    } else {
+        let moveChosen = columnF[columnFHeight].getAttribute('id');
+        playerBlueMoves.push(moveChosen);
+        playerBlueMoves.sort();
+    }
+};
+
+ function logPlayerMoveColumnG() {
+    if (playerTurn == "red") {
+        let moveChosen = columnG[columnGHeight].getAttribute('id');
+        playerRedMoves.push(moveChosen);
+        playerRedMoves.sort();
+    } else {
+        let moveChosen = columnG[columnGHeight].getAttribute('id');
+        playerBlueMoves.push(moveChosen);
+        playerBlueMoves.sort();
     }
 };
 
@@ -105,51 +178,59 @@ function alternatePlayer() {
     }
 };
 
-//******TEST FUNCTIONS******
-function checkVerticalWin() {
-
-};
-
 //******EVENT LISTENERS******
 
  button1.addEventListener('click', function() {
      alternatePlayer();
+     logPlayerMoveColumnA()
      columnA[columnAHeight].style.backgroundColor = playerTurn;
      ++columnAHeight;
  });
 
  button2.addEventListener('click', function() {
      alternatePlayer();
+     logPlayerMoveColumnB();
      columnB[columnBHeight].style.backgroundColor = playerTurn;
      ++columnBHeight;
  });
 
  button3.addEventListener('click', function() {
      alternatePlayer();
+     logPlayerMoveColumnC();
      columnC[columnCHeight].style.backgroundColor = playerTurn;
      ++columnCHeight;
  });
 
  button4.addEventListener('click', function() {
      alternatePlayer();
+     logPlayerMoveColumnD();
      columnD[columnDHeight].style.backgroundColor = playerTurn;
      ++columnDHeight;
  });
 
  button5.addEventListener('click', function() {
      alternatePlayer();
+     logPlayerMoveColumnE();
      columnE[columnEHeight].style.backgroundColor = playerTurn;
      ++columnEHeight;
  });
 
  button6.addEventListener('click', function() {
      alternatePlayer();
+     logPlayerMoveColumnF();
      columnF[columnFHeight].style.backgroundColor = playerTurn;
      ++columnFHeight;
  });
 
  button7.addEventListener('click', function() {
      alternatePlayer();
+     logPlayerMoveColumnG();
      columnG[columnGHeight].style.backgroundColor = playerTurn;
      ++columnGHeight;
  });
+
+//******TEST FUNCTIONS******
+
+    
+    
+// const verticalWinCondition = playerBlueMoves.every((el, idx) =>
