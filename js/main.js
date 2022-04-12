@@ -64,12 +64,13 @@ const columnE = [e1, e2, e3, e4, e5, e6];
 const columnF = [f1, f2, f3, f4, f5, f6];
 const columnG = [g1, g2, g3, g4, g5, g6];
 
-
 //I'm not sure if these variables are needed yet
+let playerRedMoves = [];
+
+let playerBlueMoves = [];
 
 
-
-//WORKING FUNCTIONS
+//******WORKING FUNCTIONS********
 
 //these event listeners will add "chips" into each circle on the board when the corresponding column button is pushed
 // button1.addEventListener('click', function() {
@@ -82,7 +83,7 @@ const columnG = [g1, g2, g3, g4, g5, g6];
 //     b1.style.backgroundColor = playerTurn;
 // });
 
-//these functions takes the above function and stacks the chips
+//START OF: these functions takes the above function and stacks the chips
 button1.addEventListener('click', function() {
      alternatePlayer();
      columnA[columnAHeight].style.backgroundColor = playerTurn;
@@ -125,6 +126,19 @@ button1.addEventListener('click', function() {
      ++columnGHeight;
  });
 
+ //END OF: these functions takes the above function and stacks the chips
+
+ //this function logs the move that the player just selected
+ function logPlayerMove() {
+    if (playerTurn == "red") {
+        let moveChosen = columnA[columnAHeight].getAttribute('id');
+        playerRedMoves.push(moveChosen);
+    } else {
+        let moveChosen = columnA[columnAHeight].getAttribute('id');
+        playerBlueMoves.push(moveChosen);
+    }
+};
+
 //this function alternates between red and blue
 function alternatePlayer() {
     if (playerTurn == "red") {
@@ -135,4 +149,3 @@ function alternatePlayer() {
 };
 
 //TEST FUNCTIONS
-
