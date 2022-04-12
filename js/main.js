@@ -68,7 +68,24 @@ let playerBlueMoves = [];
 
 
 //I'm not sure if these variables are needed yet
-const allVerticalWinConditions = ["a1a2a3a4", "a2a3a4a5", "a3a4a5a6"];
+const allVerticalWinConditions = [
+    "a1a2a3a4", "a2a3a4a5", "a3a4a5a6",
+    "b1b2b3b4", "b2b3b4b5", "b3b4b5b6",
+    "c1c2c3c4", "c2c3c4c5", "c3c4c5c6",
+    "d1d2d3d4", "d2d3d4d5", "d3d4d5d6",
+    "e1e2e3e4", "e2e3e4e5", "e3e4e5e6",
+    "f1f2f3f4", "f2f3f4f5", "f3f4f5f6",
+    "g1g2g3g4", "g2g3g4g5", "g3g4g5g6",
+];
+
+const allHorizontalWinConditions = [
+    "a1b1c1d1", "b1c1d1e1", "c1d1e1f1", "d1e1f1g1",
+    "a2b2c2d2", "b2c2d2e2", "c2d2e2f2", "d2e2f2g2",
+    "a3b3c3d3", "b3c3d3e3", "c3d3e3f3", "d3e3f3g3",
+    "a4b4c4d4", "b4c4d4e4", "c4d4e4f4", "d4e4f4g4",
+    "a5b5c5d5", "b5c5d5e5", "c5d5e5f5", "d5e5f5g5",
+    "a6b6c6d6", "b6c6d6e6", "c6d6e6f6", "d6e6f6g6",
+];
 
 
 //******WORKING FUNCTIONS********
@@ -83,7 +100,31 @@ const allVerticalWinConditions = ["a1a2a3a4", "a2a3a4a5", "a3a4a5a6"];
 //     columnA[columnAHeight].style.backgroundColor = playerTurn;
 //     ++columnAHeight;
 
-//these function log the move that the player just selected, then sorts the playermove array
+//these function check for horizontal wins only
+function checkPlayerBlueVerticalWin() {
+        let turnMovesToString = playerBlueMoves.join("");
+        for (const ele of allVerticalWinConditions) {
+            let winOrNo = turnMovesToString.includes(ele);
+            console.log(winOrNo);
+            if (winOrNo == true) {
+                return console.log("Win!");
+            }
+        };
+};
+
+function checkPlayerRedVerticalWin() {
+        let turnMovesToString = playerRedMoves.join("");
+        for (const ele of allVerticalWinConditions) {
+            let winOrNo = turnMovesToString.includes(ele);
+            console.log(winOrNo);
+            if (winOrNo == true) {
+                return console.log("Win!");
+            }
+        };
+};
+
+
+//these functions log the move that the player just selected, then sorts the playermove array
  function logPlayerMoveColumnA() {
     if (playerTurn == "red") {
         let moveChosen = columnA[columnAHeight].getAttribute('id');
@@ -183,7 +224,7 @@ function alternatePlayer() {
      alternatePlayer();
      logPlayerMoveColumnA()
      columnA[columnAHeight].style.backgroundColor = playerTurn;
-     console.log(playerBlueMoves);
+     sortToCheckHorizontalWin();
      ++columnAHeight;
  });
 
@@ -231,18 +272,20 @@ function alternatePlayer() {
 
 //******TEST FUNCTIONS******
 
-    
-    
+let testArray = ["a1", "a2", "b1", "c1", "d1"];
 
-function checkPlayerBlueVerticalWin() {
-        let turnMovesToString = playerBlueMoves.join("");
-        for (const ele of allVerticalWinConditions) {
-            let winOrNo = turnMovesToString.includes(ele);
-            console.log(winOrNo);
-            if (winOrNo == true) {
-                return console.log("Win!");
-            }
-        };
+function sortToCheckHorizontalWin() {
+    let swapLetters = playerBlueMoves.map(function(ele) {
+        let newElement = `${ele[1]}${ele[0]}`;
+        return newElement;
+    });
+    swapLetters.sort();
+    let completedSort = swapLetters.map(function(ele) {
+        let newerElement = `${ele[1]}${ele[0]}`;
+        return newerElement;
+    });
+    console.log(completedSort);
+    return completedSort;
 };
 
- 
+
