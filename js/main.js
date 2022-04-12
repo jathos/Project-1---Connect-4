@@ -68,8 +68,7 @@ let playerBlueMoves = [];
 
 
 //I'm not sure if these variables are needed yet
-
-
+const allVerticalWinConditions = ["a1a2a3a4", "a2a3a4a5", "a3a4a5a6"];
 
 
 //******WORKING FUNCTIONS********
@@ -184,6 +183,7 @@ function alternatePlayer() {
      alternatePlayer();
      logPlayerMoveColumnA()
      columnA[columnAHeight].style.backgroundColor = playerTurn;
+     console.log(playerBlueMoves);
      ++columnAHeight;
  });
 
@@ -233,4 +233,16 @@ function alternatePlayer() {
 
     
     
-// const verticalWinCondition = playerBlueMoves.every((el, idx) =>
+
+function checkPlayerBlueVerticalWin() {
+        let turnMovesToString = playerBlueMoves.join("");
+        for (const ele of allVerticalWinConditions) {
+            let winOrNo = turnMovesToString.includes(ele);
+            console.log(winOrNo);
+            if (winOrNo == true) {
+                return console.log("Win!");
+            }
+        };
+};
+
+ 
