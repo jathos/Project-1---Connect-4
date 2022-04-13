@@ -82,6 +82,53 @@ const allHorizontalWinConditions = [
     "a5b5c5d5", "b5c5d5e5", "c5d5e5f5", "d5e5f5g5",
     "a6b6c6d6", "b6c6d6e6", "c6d6e6f6", "d6e6f6g6",
 ];
+//these variables are all used for diagonal wins
+const columnADiagonalStarts = ["a1", "a2", "a3"];
+const columnADiagonalWins = [
+    ["b2", "c3", "d4"], 
+    ["b3", "c4", "d5"], 
+    ["b4", "c5", "d6"]
+];
+const columnBDiagonalStarts = ["b1", "b2", "b3"];
+const columnBDiagonalWins = [
+    ["c2", "d3", "e4"],
+    ["c3", "d4", "e5"],
+    ["c4", "d5", "e6"]
+];
+const columnCDiagonalStarts = ["c1", "c2", "c3"];
+const columnCDiagonalWins = [
+    ["d2", "e3", "f4"],
+    ["d3", "e4", "f5"],
+    ["d4", "e5", "f6"]
+];
+const columnDDiagonalStarts = ["d1", "d2", "d3"];
+const columnDDiagonalWins = [
+    ["e2", "f3", "g4"],
+    ["e3", "f4", "g5"],
+    ["e4", "f5", "g6"],
+    ["c2", "b3", "a4"],
+    ["c3", "b4", "a5"],
+    ["c4", "b5", "a6"]
+];
+const columnEDiagonalStarts = ["e1", "e2", "e3"];
+const columnEDiagonalWins = [
+    ["d2", "c3", "b4"],
+    ["d3", "c4", "b5"],
+    ["d4", "c5", "b6"]
+];
+const columnFDiagonalStarts = ["f1", "f2", "f3"];
+const columnFDiagonalWins = [
+    ["e2", "d3", "c4"],
+    ["e3", "d4", "c5"],
+    ["e4", "d5", "c6"]
+];
+const columnGDiagonalStarts = ["g1", "g2", "g3"];
+const columnGDiagonalWins = [
+    ["f2", "e3", "d4"],
+    ["f3", "e4", "d5"],
+    ["f4", "e5", "d6"]
+];
+
 
 //these variables are used in the showWinScreen function
 const winScreenContainer = document.getElementById('wincontainer');
@@ -307,6 +354,7 @@ function showWinScreen() {
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
          checkPlayerBlueHorizontalWin();
+         checkColumnADiagonalWinBlue();
      } else {
          checkPlayerRedVerticalWin();
          checkPlayerRedHorizontalWin();
@@ -403,14 +451,14 @@ function showWinScreen() {
 
 
 //start: test for diagonal win
-function checkColumnADiagonalWin() {   
+function checkColumnADiagonalWinBlue() {   
     for (i=0; i < columnADiagonalStarts.length; i++) {
-        if (playerTestMoves.includes(columnADiagonalStarts[i])) {
+        if (playerBlueMoves.includes(columnADiagonalStarts[i])) {
             let winOrNot = columnADiagonalWins[i].every(function(ele){
-                return playerTestMoves.includes(ele);
+                return playerBlueMoves.includes(ele);
             })
             if (winOrNot == true) {
-                console.log("Win!")
+                showWinScreen();
             } else {
                 i + 1;
             }
@@ -420,9 +468,23 @@ function checkColumnADiagonalWin() {
     }
 };
 
-const columnADiagonalStarts = ["a1", "a2", "a3"];
-const columnADiagonalWins = [["b2", "c3", "d4"], ["b3", "c4", "d5"], ["b4", "c5", "d6"]];
-let playerTestMoves = ["a2", "b1", "b2", "b3", "a3", "c1", "c4", "d3", "d5"];
+function checkColumnADiagonalWinRed() {
+    for (i=0; i < columnADiagonalStarts.length; i++) {
+        if (playerRedMoves.includes(columnADiagonalStarts[i])) {
+            let winOrNot = columnADiagonalWins[i].every(function(ele){
+                return playerRedMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
 //checkColumnADiagonalWin();
 
 //end: test for diagonal win
