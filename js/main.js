@@ -83,50 +83,74 @@ const allHorizontalWinConditions = [
     "a6b6c6d6", "b6c6d6e6", "c6d6e6f6", "d6e6f6g6",
 ];
 //these variables are all used for diagonal wins
-const columnADiagonalStarts = ["a1", "a2", "a3"];
+const columnADiagonalStarts = ["a1", "a2", "a3", "a4", "a5", "a6"];
 const columnADiagonalWins = [
     ["b2", "c3", "d4"], 
     ["b3", "c4", "d5"], 
-    ["b4", "c5", "d6"]
+    ["b4", "c5", "d6"],
+    ["b3", "c2", "d1"],
+    ["b4", "c3", "d2"],
+    ["b5", "c4", "d3"]
 ];
-const columnBDiagonalStarts = ["b1", "b2", "b3"];
+const columnBDiagonalStarts = ["b1", "b2", "b3", "b4", "b5", "b6"];
 const columnBDiagonalWins = [
     ["c2", "d3", "e4"],
     ["c3", "d4", "e5"],
-    ["c4", "d5", "e6"]
+    ["c4", "d5", "e6"],
+    ["c3", "d2", "e1"],
+    ["c4", "d3", "e2"],
+    ["c5", "d4", "e3"]
 ];
-const columnCDiagonalStarts = ["c1", "c2", "c3"];
+const columnCDiagonalStarts = ["c1", "c2", "c3", "c4", "c5", "c6"];
 const columnCDiagonalWins = [
     ["d2", "e3", "f4"],
     ["d3", "e4", "f5"],
-    ["d4", "e5", "f6"]
+    ["d4", "e5", "f6"],
+    ["d3", "e2", "f1"],
+    ["d4", "e3", "f2"],
+    ["d5", "e4", "f3"]
 ];
-const columnDDiagonalStarts = ["d1", "d2", "d3"];
+const columnDDiagonalStarts = ["d1", "d2", "d3", "d1", "d2", "d3", "d4", "d5", "d6", "d4", "d5", "d6"];
 const columnDDiagonalWins = [
     ["e2", "f3", "g4"],
     ["e3", "f4", "g5"],
     ["e4", "f5", "g6"],
     ["c2", "b3", "a4"],
     ["c3", "b4", "a5"],
-    ["c4", "b5", "a6"]
+    ["c4", "b5", "a6"],
+    ["e3", "f2", "g1"],
+    ["e4", "f3", "g2"],
+    ["e5", "f4", "g3"],
+    ["c3", "b2", "a1"],
+    ["c4", "b3", "a2"],
+    ["c5", "b4", "c5"]
 ];
-const columnEDiagonalStarts = ["e1", "e2", "e3"];
+const columnEDiagonalStarts = ["e1", "e2", "e3", "e4", "e5", "e6"];
 const columnEDiagonalWins = [
     ["d2", "c3", "b4"],
     ["d3", "c4", "b5"],
-    ["d4", "c5", "b6"]
+    ["d4", "c5", "b6"],
+    ["d3", "c2", "b1"],
+    ["d4", "c3", "b2"],
+    ["d5", "c4", "b3"]
 ];
-const columnFDiagonalStarts = ["f1", "f2", "f3"];
+const columnFDiagonalStarts = ["f1", "f2", "f3", "f4", "f5", "f6"];
 const columnFDiagonalWins = [
     ["e2", "d3", "c4"],
     ["e3", "d4", "c5"],
-    ["e4", "d5", "c6"]
+    ["e4", "d5", "c6"],
+    ["e3", "d2", "c1"],
+    ["e4", "d3", "c2"],
+    ["e5", "d4", "c3"]
 ];
-const columnGDiagonalStarts = ["g1", "g2", "g3"];
+const columnGDiagonalStarts = ["g1", "g2", "g3", "g4", "g5", "g6"];
 const columnGDiagonalWins = [
     ["f2", "e3", "d4"],
     ["f3", "e4", "d5"],
-    ["f4", "e5", "d6"]
+    ["f4", "e5", "d6"],
+    ["f3", "e2", "d1"],
+    ["f4", "e3", "d2"],
+    ["f5", "e4", "d3"]
 ];
 
 
@@ -227,6 +251,246 @@ function checkPlayerBlueHorizontalWin() {
             }
         };
 };
+
+//these functions check for diagonal wins according to column
+function checkColumnADiagonalWinBlue() {   
+    for (i=0; i < columnADiagonalStarts.length; i++) {
+        if (playerBlueMoves.includes(columnADiagonalStarts[i])) {
+            let winOrNot = columnADiagonalWins[i].every(function(ele){
+                return playerBlueMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnADiagonalWinRed() {
+    for (i=0; i < columnADiagonalStarts.length; i++) {
+        if (playerRedMoves.includes(columnADiagonalStarts[i])) {
+            let winOrNot = columnADiagonalWins[i].every(function(ele){
+                return playerRedMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnBDiagonalWinBlue() {   
+    for (i=0; i < columnBDiagonalStarts.length; i++) {
+        if (playerBlueMoves.includes(columnBDiagonalStarts[i])) {
+            let winOrNot = columnBDiagonalWins[i].every(function(ele){
+                return playerBlueMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnBDiagonalWinRed() {
+    for (i=0; i < columnBDiagonalStarts.length; i++) {
+        if (playerRedMoves.includes(columnBDiagonalStarts[i])) {
+            let winOrNot = columnBDiagonalWins[i].every(function(ele){
+                return playerRedMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnCDiagonalWinBlue() {   
+    for (i=0; i < columnCDiagonalStarts.length; i++) {
+        if (playerBlueMoves.includes(columnCDiagonalStarts[i])) {
+            let winOrNot = columnCDiagonalWins[i].every(function(ele){
+                return playerBlueMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnCDiagonalWinRed() {
+    for (i=0; i < columnCDiagonalStarts.length; i++) {
+        if (playerRedMoves.includes(columnCDiagonalStarts[i])) {
+            let winOrNot = columnCDiagonalWins[i].every(function(ele){
+                return playerRedMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnDDiagonalWinBlue() {   
+    for (i=0; i < columnDDiagonalStarts.length; i++) {
+        if (playerBlueMoves.includes(columnDDiagonalStarts[i])) {
+            let winOrNot = columnDDiagonalWins[i].every(function(ele){
+                return playerBlueMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnDDiagonalWinRed() {
+    for (i=0; i < columnDDiagonalStarts.length; i++) {
+        if (playerRedMoves.includes(columnDDiagonalStarts[i])) {
+            let winOrNot = columnDDiagonalWins[i].every(function(ele){
+                return playerRedMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnEDiagonalWinBlue() {   
+    for (i=0; i < columnEDiagonalStarts.length; i++) {
+        if (playerBlueMoves.includes(columnEDiagonalStarts[i])) {
+            let winOrNot = columnEDiagonalWins[i].every(function(ele){
+                return playerBlueMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnEDiagonalWinRed() {
+    for (i=0; i < columnEDiagonalStarts.length; i++) {
+        if (playerRedMoves.includes(columnEDiagonalStarts[i])) {
+            let winOrNot = columnEDiagonalWins[i].every(function(ele){
+                return playerRedMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnFDiagonalWinBlue() {   
+    for (i=0; i < columnFDiagonalStarts.length; i++) {
+        if (playerBlueMoves.includes(columnFDiagonalStarts[i])) {
+            let winOrNot = columnFDiagonalWins[i].every(function(ele){
+                return playerBlueMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnFDiagonalWinRed() {
+    for (i=0; i < columnFDiagonalStarts.length; i++) {
+        if (playerRedMoves.includes(columnFDiagonalStarts[i])) {
+            let winOrNot = columnFDiagonalWins[i].every(function(ele){
+                return playerRedMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnGDiagonalWinBlue() {   
+    for (i=0; i < columnGDiagonalStarts.length; i++) {
+        if (playerBlueMoves.includes(columnGDiagonalStarts[i])) {
+            let winOrNot = columnGDiagonalWins[i].every(function(ele){
+                return playerBlueMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
+function checkColumnGDiagonalWinRed() {
+    for (i=0; i < columnGDiagonalStarts.length; i++) {
+        if (playerRedMoves.includes(columnGDiagonalStarts[i])) {
+            let winOrNot = columnGDiagonalWins[i].every(function(ele){
+                return playerRedMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                showWinScreen();
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
+
 
 //these functions log the move that the player just selected, then sorts the playermove array
  function logPlayerMoveColumnA() {
@@ -358,6 +622,7 @@ function showWinScreen() {
      } else {
          checkPlayerRedVerticalWin();
          checkPlayerRedHorizontalWin();
+         checkColumnADiagonalWinRed();
      };
      ++columnAHeight;
  });
@@ -369,9 +634,11 @@ function showWinScreen() {
       if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
          checkPlayerBlueHorizontalWin();
+         checkColumnBDiagonalWinBlue();
      } else {
          checkPlayerRedVerticalWin();
          checkPlayerRedHorizontalWin();
+         checkColumnBDiagonalWinRed();
      };
      ++columnBHeight;
  });
@@ -383,9 +650,11 @@ function showWinScreen() {
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
          checkPlayerBlueHorizontalWin();
+         checkColumnCDiagonalWinBlue();
      } else {
          checkPlayerRedVerticalWin();
          checkPlayerRedHorizontalWin();
+         checkColumnCDiagonalWinRed();
      };
      ++columnCHeight;
  });
@@ -397,9 +666,11 @@ function showWinScreen() {
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
          checkPlayerBlueHorizontalWin();
+         checkColumnDDiagonalWinBlue();
      } else {
          checkPlayerRedVerticalWin();
          checkPlayerRedHorizontalWin();
+         checkColumnDDiagonalWinRed();
      };
      ++columnDHeight;
  });
@@ -411,9 +682,11 @@ function showWinScreen() {
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
          checkPlayerBlueHorizontalWin();
+         checkColumnEDiagonalWinBlue();
      } else {
          checkPlayerRedVerticalWin();
          checkPlayerRedHorizontalWin();
+         checkColumnEDiagonalWinRed();
      };
      ++columnEHeight;
  });
@@ -425,9 +698,11 @@ function showWinScreen() {
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
          checkPlayerBlueHorizontalWin();
+         checkColumnFDiagonalWinBlue();
      } else {
          checkPlayerRedVerticalWin();
          checkPlayerRedHorizontalWin();
+         checkColumnFDiagonalWinRed();
      };
      ++columnFHeight;
  });
@@ -439,57 +714,17 @@ function showWinScreen() {
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
          checkPlayerBlueHorizontalWin();
+         checkColumnGDiagonalWinBlue();
      } else {
          checkPlayerRedVerticalWin();
          checkPlayerRedHorizontalWin();
+         checkColumnGDiagonalWinRed();
      };
      ++columnGHeight;
  });
 
 //******TEST FUNCTIONS******
 
-
-
-//start: test for diagonal win
-function checkColumnADiagonalWinBlue() {   
-    for (i=0; i < columnADiagonalStarts.length; i++) {
-        if (playerBlueMoves.includes(columnADiagonalStarts[i])) {
-            let winOrNot = columnADiagonalWins[i].every(function(ele){
-                return playerBlueMoves.includes(ele);
-            })
-            if (winOrNot == true) {
-                showWinScreen();
-            } else {
-                i + 1;
-            }
-        } else {
-            i + 1;
-        }
-    }
-};
-
-function checkColumnADiagonalWinRed() {
-    for (i=0; i < columnADiagonalStarts.length; i++) {
-        if (playerRedMoves.includes(columnADiagonalStarts[i])) {
-            let winOrNot = columnADiagonalWins[i].every(function(ele){
-                return playerRedMoves.includes(ele);
-            })
-            if (winOrNot == true) {
-                showWinScreen();
-            } else {
-                i + 1;
-            }
-        } else {
-            i + 1;
-        }
-    }
-};
-
-//checkColumnADiagonalWin();
-
-//end: test for diagonal win
-
-//start: show win screen
 
 
 
