@@ -65,9 +65,6 @@ const columnF = [f1, f2, f3, f4, f5, f6];
 const columnG = [g1, g2, g3, g4, g5, g6];
 let playerRedMoves = [];
 let playerBlueMoves = [];
-
-
-//I'm not sure if these variables are needed yet
 const allVerticalWinConditions = [
     "a1a2a3a4", "a2a3a4a5", "a3a4a5a6",
     "b1b2b3b4", "b2b3b4b5", "b3b4b5b6",
@@ -78,6 +75,8 @@ const allVerticalWinConditions = [
     "g1g2g3g4", "g2g3g4g5", "g3g4g5g6",
 ];
 
+//I'm not sure if these variables are needed yet
+
 const allHorizontalWinConditions = [
     "a1b1c1d1", "b1c1d1e1", "c1d1e1f1", "d1e1f1g1",
     "a2b2c2d2", "b2c2d2e2", "c2d2e2f2", "d2e2f2g2",
@@ -86,6 +85,8 @@ const allHorizontalWinConditions = [
     "a5b5c5d5", "b5c5d5e5", "c5d5e5f5", "d5e5f5g5",
     "a6b6c6d6", "b6c6d6e6", "c6d6e6f6", "d6e6f6g6",
 ];
+
+const allColumns = ["a", "b", "c", "d", "e", "f", "g"];
 
 
 //******WORKING FUNCTIONS********
@@ -272,6 +273,7 @@ function alternatePlayer() {
 
 //******TEST FUNCTIONS******
 
+//start: test for horizontal win
 let testArray = ["a1", "a2", "b1", "c1", "d1"];
 
 function sortToCheckHorizontalWin() {
@@ -287,5 +289,29 @@ function sortToCheckHorizontalWin() {
     console.log(completedSort);
     return completedSort;
 };
+//end: test for horizontal win
 
+//start: test for diagonal win
+function checkColumnADiagonalWin() {   
+    for (i=0; i < columnADiagonalStarts.length; i++) {
+        if (playerTestMoves.includes(columnADiagonalStarts[i])) {
+            let winOrNot = columnADiagonalWins[i].every(function(ele){
+                return playerTestMoves.includes(ele);
+            })
+            if (winOrNot == true) {
+                console.log("Win!")
+            } else {
+                i + 1;
+            }
+        } else {
+            i + 1;
+        }
+    }
+};
 
+const columnADiagonalStarts = ["a1", "a2", "a3"];
+const columnADiagonalWins = [["b2", "c3", "d4"], ["b3", "c4", "d5"], ["b4", "c5", "d6"]];
+let playerTestMoves = ["a2", "b1", "b2", "b3", "a3", "c1", "c4", "d3", "d5"];
+checkColumnADiagonalWin();
+
+//end: test for diagonal win
