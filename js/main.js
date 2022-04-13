@@ -101,14 +101,14 @@ const allColumns = ["a", "b", "c", "d", "e", "f", "g"];
 //     columnA[columnAHeight].style.backgroundColor = playerTurn;
 //     ++columnAHeight;
 
-//these function check for horizontal wins only
+//these function check for vertical wins only
 function checkPlayerBlueVerticalWin() {
         let turnMovesToString = playerBlueMoves.join("");
         for (const ele of allVerticalWinConditions) {
             let winOrNo = turnMovesToString.includes(ele);
             console.log(winOrNo);
             if (winOrNo == true) {
-                return console.log("Win!");
+                return showWinScreen();
             }
         };
 };
@@ -119,10 +119,12 @@ function checkPlayerRedVerticalWin() {
             let winOrNo = turnMovesToString.includes(ele);
             console.log(winOrNo);
             if (winOrNo == true) {
-                return console.log("Win!");
+                return showWinScreen();
             }
         };
 };
+
+
 
 
 //these functions log the move that the player just selected, then sorts the playermove array
@@ -225,7 +227,11 @@ function alternatePlayer() {
      alternatePlayer();
      logPlayerMoveColumnA()
      columnA[columnAHeight].style.backgroundColor = playerTurn;
-     sortToCheckHorizontalWin();
+     if (playerTurn == "blue"){
+         checkPlayerBlueVerticalWin();
+     } else {
+         checkPlayerRedVerticalWin();
+     };
      ++columnAHeight;
  });
 
@@ -312,6 +318,37 @@ function checkColumnADiagonalWin() {
 const columnADiagonalStarts = ["a1", "a2", "a3"];
 const columnADiagonalWins = [["b2", "c3", "d4"], ["b3", "c4", "d5"], ["b4", "c5", "d6"]];
 let playerTestMoves = ["a2", "b1", "b2", "b3", "a3", "c1", "c4", "d3", "d5"];
-checkColumnADiagonalWin();
+//checkColumnADiagonalWin();
 
 //end: test for diagonal win
+
+//start: show win screen
+const winScreenContainer = document.getElementById('wincontainer');
+const winScreenMessage = document.getElementById('winmessage');
+const leftSupport = document.getElementById('leftsupport');
+const rightSupport = document.getElementById('rightsupport');
+
+function showWinScreen() {
+    winScreenContainer.style.height = '100vh';
+    leftSupport.style.background = 'black';
+    rightSupport.style.background = 'black';
+    winScreenMessage.innerText = `${capitalizePlayer()} Wins!`;
+}
+
+//end: show win screen
+
+//start: capitalize playerTurn
+function capitalizePlayer() {
+    let firstLetter = playerTurn[0];
+    let remainingLetters = "";
+    let capitalizedPlayer = "";
+    if (playerTurn == "red") {
+        remainingLetters = `${playerTurn[1]}${playerTurn[2]}`;
+        capitalizedPlayer = firstLetter.toUpperCase() + remainingLetters;
+    } else {
+        remainingLetters = `${playerTurn[1]}${playerTurn[2]}${playerTurn[3]}`;
+        capitalizedPlayer = firstLetter.toUpperCase() + remainingLetters;
+    }
+    return capitalizedPlayer;
+};
+

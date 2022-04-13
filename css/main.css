@@ -27,7 +27,7 @@ body {
     width: 11%;
 }
 
-.leftsupport { 
+#leftsupport { 
     background: blue;
     position: absolute;
     left: 11%;
@@ -36,7 +36,7 @@ body {
     width: 20px;
 }
 
-.rightsupport { 
+#rightsupport { 
     background: blue;
     position: absolute;
     left: 87%;
