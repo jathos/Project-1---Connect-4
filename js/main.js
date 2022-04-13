@@ -306,6 +306,7 @@ function showWinScreen() {
      columnA[columnAHeight].style.backgroundColor = playerTurn;
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
+         checkPlayerBlueHorizontalWin();
      } else {
          checkPlayerRedVerticalWin();
          checkPlayerRedHorizontalWin();
@@ -319,8 +320,10 @@ function showWinScreen() {
      columnB[columnBHeight].style.backgroundColor = playerTurn;
       if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
+         checkPlayerBlueHorizontalWin();
      } else {
          checkPlayerRedVerticalWin();
+         checkPlayerRedHorizontalWin();
      };
      ++columnBHeight;
  });
@@ -331,8 +334,10 @@ function showWinScreen() {
      columnC[columnCHeight].style.backgroundColor = playerTurn;
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
+         checkPlayerBlueHorizontalWin();
      } else {
          checkPlayerRedVerticalWin();
+         checkPlayerRedHorizontalWin();
      };
      ++columnCHeight;
  });
@@ -343,8 +348,10 @@ function showWinScreen() {
      columnD[columnDHeight].style.backgroundColor = playerTurn;
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
+         checkPlayerBlueHorizontalWin();
      } else {
          checkPlayerRedVerticalWin();
+         checkPlayerRedHorizontalWin();
      };
      ++columnDHeight;
  });
@@ -355,8 +362,10 @@ function showWinScreen() {
      columnE[columnEHeight].style.backgroundColor = playerTurn;
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
+         checkPlayerBlueHorizontalWin();
      } else {
          checkPlayerRedVerticalWin();
+         checkPlayerRedHorizontalWin();
      };
      ++columnEHeight;
  });
@@ -367,8 +376,10 @@ function showWinScreen() {
      columnF[columnFHeight].style.backgroundColor = playerTurn;
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
+         checkPlayerBlueHorizontalWin();
      } else {
          checkPlayerRedVerticalWin();
+         checkPlayerRedHorizontalWin();
      };
      ++columnFHeight;
  });
@@ -379,8 +390,10 @@ function showWinScreen() {
      columnG[columnGHeight].style.backgroundColor = playerTurn;
      if (playerTurn == "blue"){
          checkPlayerBlueVerticalWin();
+         checkPlayerBlueHorizontalWin();
      } else {
          checkPlayerRedVerticalWin();
+         checkPlayerRedHorizontalWin();
      };
      ++columnGHeight;
  });
