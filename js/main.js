@@ -74,14 +74,6 @@ const allVerticalWinConditions = [
     "f1f2f3f4", "f2f3f4f5", "f3f4f5f6",
     "g1g2g3g4", "g2g3g4g5", "g3g4g5g6",
 ];
-//these variables are used in the showWinScreen function
-const winScreenContainer = document.getElementById('wincontainer');
-const winScreenMessage = document.getElementById('winmessage');
-const leftSupport = document.getElementById('leftsupport');
-const rightSupport = document.getElementById('rightsupport');
-
-//I'm not sure if these variables are needed yet
-
 const allHorizontalWinConditions = [
     "a1b1c1d1", "b1c1d1e1", "c1d1e1f1", "d1e1f1g1",
     "a2b2c2d2", "b2c2d2e2", "c2d2e2f2", "d2e2f2g2",
@@ -90,6 +82,16 @@ const allHorizontalWinConditions = [
     "a5b5c5d5", "b5c5d5e5", "c5d5e5f5", "d5e5f5g5",
     "a6b6c6d6", "b6c6d6e6", "c6d6e6f6", "d6e6f6g6",
 ];
+
+//these variables are used in the showWinScreen function
+const winScreenContainer = document.getElementById('wincontainer');
+const winScreenMessage = document.getElementById('winmessage');
+const leftSupport = document.getElementById('leftsupport');
+const rightSupport = document.getElementById('rightsupport');
+
+//I'm not sure if these variables are needed yet
+
+
 
 
 //******WORKING FUNCTIONS********
@@ -127,8 +129,57 @@ function checkPlayerRedVerticalWin() {
         };
 };
 
+//this function allows the vertical win condition function to work
+function sortToCheckHorizontalWin() {
+    if (playerTurn == "blue") {     
+        let swapLetters = playerBlueMoves.map(function(ele) {
+            let newElement = `${ele[1]}${ele[0]}`;
+            return newElement;
+        });
+        swapLetters.sort();
+        let completedSort = swapLetters.map(function(ele) {
+            let newerElement = `${ele[1]}${ele[0]}`;
+            return newerElement;
+        });
+        console.log(completedSort);
+        return completedSort;
+    } else {
+        let swapLetters = playerRedMoves.map(function(ele) {
+        let newElement = `${ele[1]}${ele[0]}`;
+         return newElement;
+        });
+        swapLetters.sort();
+        let completedSort = swapLetters.map(function(ele) {
+            let newerElement = `${ele[1]}${ele[0]}`;
+            return newerElement;
+        });
+        console.log(completedSort);
+        return completedSort;
+    }
+};
 
+//these functions check for horizontal wins only
+function checkPlayerRedHorizontalWin() {
+        playerRedMoves = sortToCheckHorizontalWin();
+        let turnMovesToString = playerRedMoves.join("");
+        for (const ele of allHorizontalWinConditions) {
+            let winOrNo = turnMovesToString.includes(ele);
+            if (winOrNo == true) {
+                return showWinScreen();
+            }
+        };
+};
 
+function checkPlayerBlueHorizontalWin() {
+        playerBlueMoves = sortToCheckHorizontalWin();
+        let turnMovesToString = playerBlueMoves.join("");
+        for (const ele of allHorizontalWinConditions) {
+            let winOrNo = turnMovesToString.includes(ele);
+            if (winOrNo == true) {
+                return showWinScreen();
+            }
+        };
+};
 
 //these functions log the move that the player just selected, then sorts the playermove array
  function logPlayerMoveColumnA() {
@@ -257,6 +308,7 @@ function showWinScreen() {
          checkPlayerBlueVerticalWin();
      } else {
          checkPlayerRedVerticalWin();
+         checkPlayerRedHorizontalWin();
      };
      ++columnAHeight;
  });
@@ -335,23 +387,7 @@ function showWinScreen() {
 
 //******TEST FUNCTIONS******
 
-//start: test for horizontal win
-let testArray = ["a1", "a2", "b1", "c1", "d1"];
 
-function sortToCheckHorizontalWin() {
-    let swapLetters = playerBlueMoves.map(function(ele) {
-        let newElement = `${ele[1]}${ele[0]}`;
-        return newElement;
-    });
-    swapLetters.sort();
-    let completedSort = swapLetters.map(function(ele) {
-        let newerElement = `${ele[1]}${ele[0]}`;
-        return newerElement;
-    });
-    console.log(completedSort);
-    return completedSort;
-};
-//end: test for horizontal win
 
 //start: test for diagonal win
 function checkColumnADiagonalWin() {   
