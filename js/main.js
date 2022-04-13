@@ -1,4 +1,4 @@
-//these variables are currently in use by working functions
+//******WORKING VARIABLES******
 const a1 = document.getElementById('a1');
 const a2 = document.getElementById('a2');
 const a3 = document.getElementById('a3');
@@ -166,16 +166,6 @@ const rightSupport = document.getElementById('rightsupport');
 
 
 //******WORKING FUNCTIONS********
-
-//this code will add alternating color "chips" into each circle (ex is for button1)
-// button1.addEventListener('click', function() {
-//     alternatePlayer();
-//     a1.style.backgroundColor = playerTurn;
-// });
-
-//this code allows the chips to stack on top of each other (ex is for columnA)
-//     columnA[columnAHeight].style.backgroundColor = playerTurn;
-//     ++columnAHeight;
 
 //these function check for vertical wins only
 function checkPlayerBlueVerticalWin() {
