@@ -67,5 +67,22 @@ button {
     color: white;
     position: relative;
     top: 50%;
-    left: 33%;
+    left: 40%;
+}
+
+#winbutton {
+    position: relative;
+    height: 30px;
+    width: 25%;
+    font-size: 15pt;
+    font-weight: bold;
+    top: 57%;
+    left: 35%;
+    cursor: pointer;
+    background: cadetblue;
+    opacity: .7;
+}
+
+#winbutton:hover {
+    opacity: 1.5;
 }

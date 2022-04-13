@@ -597,6 +597,7 @@ function showWinScreen() {
     leftSupport.style.background = 'black';
     rightSupport.style.background = 'black';
     winScreenMessage.innerText = `${capitalizePlayer()} Wins!`;
+    showButton();
 }
 
 //******EVENT LISTENERS******
@@ -714,6 +715,16 @@ function showWinScreen() {
  });
 
 //******TEST FUNCTIONS******
+function showButton() { 
+    let newButton = document.createElement('button');
+    newButton.setAttribute('id', 'winbutton');
+    winScreenContainer.appendChild(newButton);
+    newButton.innerText = "Play Again?";
+    newButton.addEventListener('click', function() {
+        location.reload();
+    });
+};
+
 
 
 
