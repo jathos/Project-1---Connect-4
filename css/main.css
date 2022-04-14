@@ -27,7 +27,7 @@ body {
     border-radius: 50%;
     height: 15%;
     width: 100%;
-    background-color: white;
+    background-color: lightgrey;
 }
 
 .circlecontainers {
@@ -86,7 +86,7 @@ button {
     color: white;
     position: relative;
     top: 50%;
-    left: 40%;
+    left: 43%;
 }
 
 #winbutton {
@@ -116,3 +116,4 @@ button {
     font-size: 20pt;
     letter-spacing: 4px;
 }
+
