@@ -82,7 +82,7 @@ const allHorizontalWinConditions = [
     "a5b5c5d5", "b5c5d5e5", "c5d5e5f5", "d5e5f5g5",
     "a6b6c6d6", "b6c6d6e6", "c6d6e6f6", "d6e6f6g6",
 ];
-//these variables are all used for diagonal wins
+//these variables are all possible diagonal win combinations
 const columnADiagonalStarts = ["a1", "a2", "a3", "a4", "a5", "a6"];
 const columnADiagonalWins = [
     ["b2", "c3", "d4"], 
@@ -92,25 +92,43 @@ const columnADiagonalWins = [
     ["b4", "c3", "d2"],
     ["b5", "c4", "d3"]
 ];
-const columnBDiagonalStarts = ["b1", "b2", "b3", "b4", "b5", "b6"];
+const columnBDiagonalStarts = ["b1", "b2", "b3", "b4", "b5", "b6", "b5", "b2", "b3", "b3", "b4", "b4"];
 const columnBDiagonalWins = [
     ["c2", "d3", "e4"],
     ["c3", "d4", "e5"],
     ["c4", "d5", "e6"],
     ["c3", "d2", "e1"],
     ["c4", "d3", "e2"],
-    ["c5", "d4", "e3"]
+    ["c5", "d4", "e3"],
+    ["a6", "c4", "d3"],
+    ["a1", "c3", "d4"],
+    ["a4", "c2", "d1"],
+    ["a2", "c4", "d5"],
+    ["a3", "c5", "d6"],
+    ["a5", "c3", "d2"]
 ];
-const columnCDiagonalStarts = ["c1", "c2", "c3", "c4", "c5", "c6"];
+const columnCDiagonalStarts = ["c1", "c2", "c3", "c4", "c5", "c6", "c2", "c2", "c3", "c3", "c3", "c3", "c4", "c4", "c4", "c4", "c5", "c5"];
 const columnCDiagonalWins = [
     ["d2", "e3", "f4"],
     ["d3", "e4", "f5"],
     ["d4", "e5", "f6"],
     ["d3", "e2", "f1"],
     ["d4", "e3", "f2"],
-    ["d5", "e4", "f3"]
+    ["d5", "e4", "f3"],
+    ["b1", "d3", "e4"],
+    ["d1", "b3", "a4"],
+    ["e5", "d4", "b2"],
+    ["d4", "b2", "a1"],
+    ["a5", "b4", "d2"],
+    ["b4", "d2", "e1"],
+    ["a6", "b5", "d3"],
+    ["b5", "d3", "e2"],
+    ["e6", "d5", "b3"],
+    ["d5", "b3", "a2"],
+    ["b6", "d4", "e3"],
+    ["d6", "b4", "a3"]
 ];
-const columnDDiagonalStarts = ["d1", "d2", "d3", "d1", "d2", "d3", "d4", "d5", "d6", "d4", "d5", "d6"];
+const columnDDiagonalStarts = ["d1", "d2", "d3", "d1", "d2", "d3", "d4", "d5", "d6", "d4", "d5", "d6", "d2", "d2", "d3", "d3", "d3", "d3", "d4", "d4", "d4", "d4", "d5", "d5"];
 const columnDDiagonalWins = [
     ["e2", "f3", "g4"],
     ["e3", "f4", "g5"],
@@ -123,25 +141,55 @@ const columnDDiagonalWins = [
     ["e5", "f4", "g3"],
     ["c3", "b2", "a1"],
     ["c4", "b3", "a2"],
-    ["c5", "b4", "c5"]
+    ["c5", "b4", "c5"],
+    ["e1", "c3", "b4"],
+    ["c1", "e3", "f4"],
+    ["f1", "e2", "c4"],
+    ["e2", "c4", "b5"],
+    ["f5", "e4", "c2"],
+    ["e4", "c2", "b1"],
+    ["f6", "e5", "c3"],
+    ["e5", "c3", "b2"],
+    ["b6", "c5", "e3"],
+    ["c5", "e3", "f2"],
+    ["e6", "c4", "b3"],
+    ["c6", "e4", "f3"]
 ];
-const columnEDiagonalStarts = ["e1", "e2", "e3", "e4", "e5", "e6"];
+const columnEDiagonalStarts = ["e1", "e2", "e3", "e4", "e5", "e6", "e2", "e2", "e3", "e3", "e3", "e3", "e4", "e4", "e4", "e4", "e5", "e5"];
 const columnEDiagonalWins = [
     ["d2", "c3", "b4"],
     ["d3", "c4", "b5"],
     ["d4", "c5", "b6"],
     ["d3", "c2", "b1"],
     ["d4", "c3", "b2"],
-    ["d5", "c4", "b3"]
+    ["d5", "c4", "b3"],
+    ["d1", "f3", "g4"],
+    ["f1", "d3", "c4"],
+    ["c5", "d4", "f2"],
+    ["d4", "f2", "g1"],
+    ["g5", "f4", "d2"],
+    ["f4", "d2", "c1"],
+    ["c6", "d5", "f3"],
+    ["d5", "f3", "g2"],
+    ["g6", "f5", "d3"],
+    ["f5", "d3", "c2"],
+    ["d6", "f4", "g3"],
+    ["f6", "d4", "c3"]
 ];
-const columnFDiagonalStarts = ["f1", "f2", "f3", "f4", "f5", "f6"];
+const columnFDiagonalStarts = ["f1", "f2", "f3", "f4", "f5", "f6", "f2", "f3", "f3", "f4", "f4", "f5"];
 const columnFDiagonalWins = [
     ["e2", "d3", "c4"],
     ["e3", "d4", "c5"],
     ["e4", "d5", "c6"],
     ["e3", "d2", "c1"],
     ["e4", "d3", "c2"],
-    ["e5", "d4", "c3"]
+    ["e5", "d4", "c3"],
+    ["g1", "e3", "d4"],
+    ["g4", "e2", "d1"],
+    ["g2", "f4", "d5"],
+    ["g5", "e3", "d2"],
+    ["g3", "e5", "d6"],
+    ["g6", "e4", "d3"]
 ];
 const columnGDiagonalStarts = ["g1", "g2", "g3", "g4", "g5", "g6"];
 const columnGDiagonalWins = [
