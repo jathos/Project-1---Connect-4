@@ -1,4 +1,11 @@
 //******WORKING VARIABLES******
+const columnADOM = document.getElementById('columnA');
+const columnBDOM = document.getElementById('columnB');
+const columnCDOM = document.getElementById('columnC');
+const columnDDOM = document.getElementById('columnD');
+const columnEDOM = document.getElementById('columnE');
+const columnFDOM = document.getElementById('columnF');
+const columnGDOM = document.getElementById('columnG');
 const a1 = document.getElementById('a1');
 const a2 = document.getElementById('a2');
 const a3 = document.getElementById('a3');
@@ -41,13 +48,6 @@ const g3 = document.getElementById('g3');
 const g4 = document.getElementById('g4');
 const g5 = document.getElementById('g5');
 const g6 = document.getElementById('g6');
-// const button1 = document.getElementById('button1');
-// const button2 = document.getElementById('button2');
-// const button3 = document.getElementById('button3');
-// const button4 = document.getElementById('button4');
-// const button5 = document.getElementById('button5');
-// const button6 = document.getElementById('button6');
-// const button7 = document.getElementById('button7');
 let playerTurn = "red";
 let columnAHeight = 0;
 let columnBHeight = 0;
@@ -208,18 +208,10 @@ const winScreenMessage = document.getElementById('winmessage');
 const leftSupport = document.getElementById('leftsupport');
 const rightSupport = document.getElementById('rightsupport');
 
-//I'm not sure if these variables are needed yet
-const columnADOM = document.getElementById('columnA');
-const columnBDOM = document.getElementById('columnB');
-const columnCDOM = document.getElementById('columnC');
-const columnDDOM = document.getElementById('columnD');
-const columnEDOM = document.getElementById('columnE');
-const columnFDOM = document.getElementById('columnF');
-const columnGDOM = document.getElementById('columnG');
 
 
 
-//******WORKING FUNCTIONS********
+//******FUNCTIONS********
 
 //these function check for vertical wins only
 function checkPlayerBlueVerticalWin() {
@@ -661,6 +653,56 @@ function showWinScreen() {
     showButton();
 }
 
+//these functions will highlight the column you have moused over
+columnADOM.addEventListener('mouseenter', function() {
+    columnADOM.style.backgroundColor = '#edeb79';
+});
+columnADOM.addEventListener('mouseleave', function() {
+    columnADOM.style.backgroundColor = 'yellow';
+});
+
+columnBDOM.addEventListener('mouseenter', function() {
+    columnBDOM.style.backgroundColor = '#edeb79';
+});
+columnBDOM.addEventListener('mouseleave', function() {
+    columnBDOM.style.backgroundColor = 'yellow';
+});
+
+columnCDOM.addEventListener('mouseenter', function() {
+    columnCDOM.style.backgroundColor = '#edeb79';
+});
+columnCDOM.addEventListener('mouseleave', function() {
+    columnCDOM.style.backgroundColor = 'yellow';
+})
+
+columnDDOM.addEventListener('mouseenter', function() {
+    columnDDOM.style.backgroundColor = '#edeb79';
+});
+columnDDOM.addEventListener('mouseleave', function() {
+    columnDDOM.style.backgroundColor = 'yellow';
+});
+
+columnEDOM.addEventListener('mouseenter', function() {
+    columnEDOM.style.backgroundColor = '#edeb79';
+});
+columnEDOM.addEventListener('mouseleave', function() {
+    columnEDOM.style.backgroundColor = 'yellow';
+});
+
+columnFDOM.addEventListener('mouseenter', function() {
+    columnFDOM.style.backgroundColor = '#edeb79';
+});
+columnFDOM.addEventListener('mouseleave', function() {
+    columnFDOM.style.backgroundColor = 'yellow';
+});
+
+columnGDOM.addEventListener('mouseenter', function() {
+    columnGDOM.style.backgroundColor = '#edeb79';
+});
+columnGDOM.addEventListener('mouseleave', function() {
+    columnGDOM.style.backgroundColor = 'yellow';
+});
+
 //******EVENT LISTENERS******
 
  columnADOM.addEventListener('click', function() {
@@ -775,53 +817,3 @@ function showWinScreen() {
      ++columnGHeight;
  });
 
-//******TEST FUNCTIONS******
-
-columnADOM.addEventListener('mouseenter', function() {
-    columnADOM.style.backgroundColor = '#edeb79';
-});
-columnADOM.addEventListener('mouseleave', function() {
-    columnADOM.style.backgroundColor = 'yellow';
-});
-
-columnBDOM.addEventListener('mouseenter', function() {
-    columnBDOM.style.backgroundColor = '#edeb79';
-});
-columnBDOM.addEventListener('mouseleave', function() {
-    columnBDOM.style.backgroundColor = 'yellow';
-});
-
-columnCDOM.addEventListener('mouseenter', function() {
-    columnCDOM.style.backgroundColor = '#edeb79';
-});
-columnCDOM.addEventListener('mouseleave', function() {
-    columnCDOM.style.backgroundColor = 'yellow';
-})
-
-columnDDOM.addEventListener('mouseenter', function() {
-    columnDDOM.style.backgroundColor = '#edeb79';
-});
-columnDDOM.addEventListener('mouseleave', function() {
-    columnDDOM.style.backgroundColor = 'yellow';
-});
-
-columnEDOM.addEventListener('mouseenter', function() {
-    columnEDOM.style.backgroundColor = '#edeb79';
-});
-columnEDOM.addEventListener('mouseleave', function() {
-    columnEDOM.style.backgroundColor = 'yellow';
-});
-
-columnFDOM.addEventListener('mouseenter', function() {
-    columnFDOM.style.backgroundColor = '#edeb79';
-});
-columnFDOM.addEventListener('mouseleave', function() {
-    columnFDOM.style.backgroundColor = 'yellow';
-});
-
-columnGDOM.addEventListener('mouseenter', function() {
-    columnGDOM.style.backgroundColor = '#edeb79';
-});
-columnGDOM.addEventListener('mouseleave', function() {
-    columnGDOM.style.backgroundColor = 'yellow';
-});
