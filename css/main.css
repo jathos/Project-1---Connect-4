@@ -79,10 +79,21 @@ button {
     top: 57%;
     left: 35%;
     cursor: pointer;
-    background: cadetblue;
+    background: yellow;
+    border: solid;
+    border-width: 3px;
+    border-color: blue;
     opacity: .7;
+    padding: 0 5px 4px 5px;
+    align-items: center;
 }
 
 #winbutton:hover {
     opacity: 1.5;
+}
+
+.connect4 {
+    color: blue;
+    font-size: 20pt;
+    letter-spacing: 4px;
 }

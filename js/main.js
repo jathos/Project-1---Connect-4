@@ -41,13 +41,13 @@ const g3 = document.getElementById('g3');
 const g4 = document.getElementById('g4');
 const g5 = document.getElementById('g5');
 const g6 = document.getElementById('g6');
-const button1 = document.getElementById('button1');
-const button2 = document.getElementById('button2');
-const button3 = document.getElementById('button3');
-const button4 = document.getElementById('button4');
-const button5 = document.getElementById('button5');
-const button6 = document.getElementById('button6');
-const button7 = document.getElementById('button7');
+// const button1 = document.getElementById('button1');
+// const button2 = document.getElementById('button2');
+// const button3 = document.getElementById('button3');
+// const button4 = document.getElementById('button4');
+// const button5 = document.getElementById('button5');
+// const button6 = document.getElementById('button6');
+// const button7 = document.getElementById('button7');
 let playerTurn = "red";
 let columnAHeight = 0;
 let columnBHeight = 0;
@@ -209,7 +209,13 @@ const leftSupport = document.getElementById('leftsupport');
 const rightSupport = document.getElementById('rightsupport');
 
 //I'm not sure if these variables are needed yet
-
+const columnADOM = document.getElementById('columnA');
+const columnBDOM = document.getElementById('columnB');
+const columnCDOM = document.getElementById('columnC');
+const columnDDOM = document.getElementById('columnD');
+const columnEDOM = document.getElementById('columnE');
+const columnFDOM = document.getElementById('columnF');
+const columnGDOM = document.getElementById('columnG');
 
 
 
@@ -220,7 +226,6 @@ function checkPlayerBlueVerticalWin() {
         let turnMovesToString = playerBlueMoves.join("");
         for (const ele of allVerticalWinConditions) {
             let winOrNo = turnMovesToString.includes(ele);
-            console.log(winOrNo);
             if (winOrNo == true) {
                 return showWinScreen();
             }
@@ -231,7 +236,6 @@ function checkPlayerRedVerticalWin() {
         let turnMovesToString = playerRedMoves.join("");
         for (const ele of allVerticalWinConditions) {
             let winOrNo = turnMovesToString.includes(ele);
-            console.log(winOrNo);
             if (winOrNo == true) {
                 return showWinScreen();
             }
@@ -250,7 +254,6 @@ function sortToCheckHorizontalWin() {
             let newerElement = `${ele[1]}${ele[0]}`;
             return newerElement;
         });
-        console.log(completedSort);
         return completedSort;
     } else {
         let swapLetters = playerRedMoves.map(function(ele) {
@@ -262,7 +265,6 @@ function sortToCheckHorizontalWin() {
             let newerElement = `${ele[1]}${ele[0]}`;
             return newerElement;
         });
-        console.log(completedSort);
         return completedSort;
     }
 };
@@ -639,6 +641,17 @@ function capitalizePlayer() {
     return capitalizedPlayer;
 };
 
+//this function creates a 'play again' button to display on the win screen
+function showButton() { 
+    let newButton = document.createElement('button');
+    newButton.setAttribute('id', 'winbutton');
+    winScreenContainer.appendChild(newButton);
+    newButton.innerText = "Play Again?";
+    newButton.addEventListener('click', function() {
+        location.reload();
+    });
+};
+
 //this function shows the win screen
 function showWinScreen() {
     winScreenContainer.style.height = '100vh';
@@ -650,7 +663,7 @@ function showWinScreen() {
 
 //******EVENT LISTENERS******
 
- button1.addEventListener('click', function() {
+ columnADOM.addEventListener('click', function() {
      alternatePlayer();
      logPlayerMoveColumnA()
      columnA[columnAHeight].style.backgroundColor = playerTurn;
@@ -666,7 +679,7 @@ function showWinScreen() {
      ++columnAHeight;
  });
 
- button2.addEventListener('click', function() {
+ columnBDOM.addEventListener('click', function() {
      alternatePlayer();
      logPlayerMoveColumnB();
      columnB[columnBHeight].style.backgroundColor = playerTurn;
@@ -682,7 +695,7 @@ function showWinScreen() {
      ++columnBHeight;
  });
 
- button3.addEventListener('click', function() {
+ columnCDOM.addEventListener('click', function() {
      alternatePlayer();
      logPlayerMoveColumnC();
      columnC[columnCHeight].style.backgroundColor = playerTurn;
@@ -698,7 +711,7 @@ function showWinScreen() {
      ++columnCHeight;
  });
 
- button4.addEventListener('click', function() {
+ columnDDOM.addEventListener('click', function() {
      alternatePlayer();
      logPlayerMoveColumnD();
      columnD[columnDHeight].style.backgroundColor = playerTurn;
@@ -714,7 +727,7 @@ function showWinScreen() {
      ++columnDHeight;
  });
 
- button5.addEventListener('click', function() {
+ columnEDOM.addEventListener('click', function() {
      alternatePlayer();
      logPlayerMoveColumnE();
      columnE[columnEHeight].style.backgroundColor = playerTurn;
@@ -730,7 +743,7 @@ function showWinScreen() {
      ++columnEHeight;
  });
 
- button6.addEventListener('click', function() {
+ columnFDOM.addEventListener('click', function() {
      alternatePlayer();
      logPlayerMoveColumnF();
      columnF[columnFHeight].style.backgroundColor = playerTurn;
@@ -746,7 +759,7 @@ function showWinScreen() {
      ++columnFHeight;
  });
 
- button7.addEventListener('click', function() {
+ columnGDOM.addEventListener('click', function() {
      alternatePlayer();
      logPlayerMoveColumnG();
      columnG[columnGHeight].style.backgroundColor = playerTurn;
@@ -763,23 +776,52 @@ function showWinScreen() {
  });
 
 //******TEST FUNCTIONS******
-function showButton() { 
-    let newButton = document.createElement('button');
-    newButton.setAttribute('id', 'winbutton');
-    winScreenContainer.appendChild(newButton);
-    newButton.innerText = "Play Again?";
-    newButton.addEventListener('click', function() {
-        location.reload();
-    });
-};
 
+columnADOM.addEventListener('mouseenter', function() {
+    columnADOM.style.backgroundColor = '#edeb79';
+});
+columnADOM.addEventListener('mouseleave', function() {
+    columnADOM.style.backgroundColor = 'yellow';
+});
 
+columnBDOM.addEventListener('mouseenter', function() {
+    columnBDOM.style.backgroundColor = '#edeb79';
+});
+columnBDOM.addEventListener('mouseleave', function() {
+    columnBDOM.style.backgroundColor = 'yellow';
+});
 
+columnCDOM.addEventListener('mouseenter', function() {
+    columnCDOM.style.backgroundColor = '#edeb79';
+});
+columnCDOM.addEventListener('mouseleave', function() {
+    columnCDOM.style.backgroundColor = 'yellow';
+})
 
+columnDDOM.addEventListener('mouseenter', function() {
+    columnDDOM.style.backgroundColor = '#edeb79';
+});
+columnDDOM.addEventListener('mouseleave', function() {
+    columnDDOM.style.backgroundColor = 'yellow';
+});
 
+columnEDOM.addEventListener('mouseenter', function() {
+    columnEDOM.style.backgroundColor = '#edeb79';
+});
+columnEDOM.addEventListener('mouseleave', function() {
+    columnEDOM.style.backgroundColor = 'yellow';
+});
 
+columnFDOM.addEventListener('mouseenter', function() {
+    columnFDOM.style.backgroundColor = '#edeb79';
+});
+columnFDOM.addEventListener('mouseleave', function() {
+    columnFDOM.style.backgroundColor = 'yellow';
+});
 
-
-
-
-
+columnGDOM.addEventListener('mouseenter', function() {
+    columnGDOM.style.backgroundColor = '#edeb79';
+});
+columnGDOM.addEventListener('mouseleave', function() {
+    columnGDOM.style.backgroundColor = 'yellow';
+});
