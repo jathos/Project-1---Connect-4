@@ -213,6 +213,8 @@ const rightSupport = document.getElementById('rightsupport');
 
 //******FUNCTIONS********
 
+
+
 //these function check for vertical wins only
 function checkPlayerBlueVerticalWin() {
         let turnMovesToString = playerBlueMoves.join("");
@@ -649,6 +651,7 @@ function showWinScreen() {
     winScreenContainer.style.height = '100vh';
     leftSupport.style.background = 'black';
     rightSupport.style.background = 'black';
+    confetti({spread: 180});
     winScreenMessage.innerText = `${capitalizePlayer()} Wins!`;
     showButton();
 }
