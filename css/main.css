@@ -1,5 +1,5 @@
 body {
-    background-image: url("connect4background.png");
+    background-image: url("SuperMetroidCrateriaRain.gif");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -8,16 +8,17 @@ body {
     display: flex;
     flex-direction: row;
     background-color: yellow;
-    width: 75%;
-    height: 500px;
+    width: 50%;
+    height: 490px;
     justify-content: space-evenly;
-    margin: 10px auto;
+    margin: 50px auto 50px auto;
     padding: 10px;
 }
 
-@media screen and (min-width: 900px) {
+@media only screen and (min-width: 1920px) {
     .mainboard {
         width: 675px;
+        height: 575px;
         margin-top: 100px;
     }
 }
@@ -37,7 +38,7 @@ body {
     width: 11%;
 }
 
-#leftsupport { 
+#leftsupport {
     background: blue;
     position: absolute;
     left: 31%;
@@ -46,22 +47,13 @@ body {
     margin-top: 410px;
 }
 
-#rightsupport { 
+#rightsupport {
     background: blue;
     position: absolute;
     left: 68%;
     height: 240px;
     width: 20px;
     bottom: 113px;
-}
-
-@media screen and (min-width: 900px) {
-    #leftsupport {
-        margin-top: 500px;
-    }
-    #rightsupport {
-        bottom: 125px;
-    }
 }
 
 button {
@@ -112,10 +104,8 @@ button {
 }
 
 .connect4 {
-    color: blue;
+    color: orange;
     font-size: 20pt;
     letter-spacing: 4px;
+    margin: 0;
 }
-
-
-
