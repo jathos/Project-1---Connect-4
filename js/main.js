@@ -1,4 +1,5 @@
 //******WORKING VARIABLES******
+const mainBoard = document.getElementById('mainBoard');
 const columnADOM = document.getElementById('columnA');
 const columnBDOM = document.getElementById('columnB');
 const columnCDOM = document.getElementById('columnC');
@@ -85,8 +86,8 @@ const allHorizontalWinConditions = [
 //these variables are all possible diagonal win combinations
 const columnADiagonalStarts = ["a1", "a2", "a3", "a4", "a5", "a6"];
 const columnADiagonalWins = [
-    ["b2", "c3", "d4"], 
-    ["b3", "c4", "d5"], 
+    ["b2", "c3", "d4"],
+    ["b3", "c4", "d5"],
     ["b4", "c5", "d6"],
     ["b3", "c2", "d1"],
     ["b4", "c3", "d2"],
@@ -213,49 +214,47 @@ const rightSupport = document.getElementById('rightsupport');
 
 //******FUNCTIONS********
 
-
-
 //these function check for vertical wins only
 function checkPlayerBlueVerticalWin() {
-        let turnMovesToString = playerBlueMoves.join("");
-        for (const ele of allVerticalWinConditions) {
-            let winOrNo = turnMovesToString.includes(ele);
-            if (winOrNo == true) {
-                return showWinScreen();
-            }
-        };
+    let turnMovesToString = playerBlueMoves.join("");
+    for (const ele of allVerticalWinConditions) {
+        let winOrNo = turnMovesToString.includes(ele);
+        if (winOrNo == true) {
+            return showWinScreen();
+        }
+    };
 };
 
 function checkPlayerRedVerticalWin() {
-        let turnMovesToString = playerRedMoves.join("");
-        for (const ele of allVerticalWinConditions) {
-            let winOrNo = turnMovesToString.includes(ele);
-            if (winOrNo == true) {
-                return showWinScreen();
-            }
-        };
+    let turnMovesToString = playerRedMoves.join("");
+    for (const ele of allVerticalWinConditions) {
+        let winOrNo = turnMovesToString.includes(ele);
+        if (winOrNo == true) {
+            return showWinScreen();
+        }
+    };
 };
 
 //this function allows the vertical win condition function to work
 function sortToCheckHorizontalWin() {
-    if (playerTurn == "blue") {     
-        let swapLetters = playerBlueMoves.map(function(ele) {
+    if (playerTurn == "blue") {
+        let swapLetters = playerBlueMoves.map(function (ele) {
             let newElement = `${ele[1]}${ele[0]}`;
             return newElement;
         });
         swapLetters.sort();
-        let completedSort = swapLetters.map(function(ele) {
+        let completedSort = swapLetters.map(function (ele) {
             let newerElement = `${ele[1]}${ele[0]}`;
             return newerElement;
         });
         return completedSort;
     } else {
-        let swapLetters = playerRedMoves.map(function(ele) {
-        let newElement = `${ele[1]}${ele[0]}`;
-         return newElement;
+        let swapLetters = playerRedMoves.map(function (ele) {
+            let newElement = `${ele[1]}${ele[0]}`;
+            return newElement;
         });
         swapLetters.sort();
-        let completedSort = swapLetters.map(function(ele) {
+        let completedSort = swapLetters.map(function (ele) {
             let newerElement = `${ele[1]}${ele[0]}`;
             return newerElement;
         });
@@ -265,32 +264,32 @@ function sortToCheckHorizontalWin() {
 
 //these functions check for horizontal wins only
 function checkPlayerRedHorizontalWin() {
-        playerRedMoves = sortToCheckHorizontalWin();
-        let turnMovesToString = playerRedMoves.join("");
-        for (const ele of allHorizontalWinConditions) {
-            let winOrNo = turnMovesToString.includes(ele);
-            if (winOrNo == true) {
-                return showWinScreen();
-            }
-        };
+    playerRedMoves = sortToCheckHorizontalWin();
+    let turnMovesToString = playerRedMoves.join("");
+    for (const ele of allHorizontalWinConditions) {
+        let winOrNo = turnMovesToString.includes(ele);
+        if (winOrNo == true) {
+            return showWinScreen();
+        }
+    };
 };
 
 function checkPlayerBlueHorizontalWin() {
-        playerBlueMoves = sortToCheckHorizontalWin();
-        let turnMovesToString = playerBlueMoves.join("");
-        for (const ele of allHorizontalWinConditions) {
-            let winOrNo = turnMovesToString.includes(ele);
-            if (winOrNo == true) {
-                return showWinScreen();
-            }
-        };
+    playerBlueMoves = sortToCheckHorizontalWin();
+    let turnMovesToString = playerBlueMoves.join("");
+    for (const ele of allHorizontalWinConditions) {
+        let winOrNo = turnMovesToString.includes(ele);
+        if (winOrNo == true) {
+            return showWinScreen();
+        }
+    };
 };
 
 //these functions check for diagonal wins according to column
-function checkColumnADiagonalWinBlue() {   
-    for (i=0; i < columnADiagonalStarts.length; i++) {
+function checkColumnADiagonalWinBlue() {
+    for (i = 0; i < columnADiagonalStarts.length; i++) {
         if (playerBlueMoves.includes(columnADiagonalStarts[i])) {
-            let winOrNot = columnADiagonalWins[i].every(function(ele){
+            let winOrNot = columnADiagonalWins[i].every(function (ele) {
                 return playerBlueMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -305,9 +304,9 @@ function checkColumnADiagonalWinBlue() {
 };
 
 function checkColumnADiagonalWinRed() {
-    for (i=0; i < columnADiagonalStarts.length; i++) {
+    for (i = 0; i < columnADiagonalStarts.length; i++) {
         if (playerRedMoves.includes(columnADiagonalStarts[i])) {
-            let winOrNot = columnADiagonalWins[i].every(function(ele){
+            let winOrNot = columnADiagonalWins[i].every(function (ele) {
                 return playerRedMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -321,10 +320,10 @@ function checkColumnADiagonalWinRed() {
     }
 };
 
-function checkColumnBDiagonalWinBlue() {   
-    for (i=0; i < columnBDiagonalStarts.length; i++) {
+function checkColumnBDiagonalWinBlue() {
+    for (i = 0; i < columnBDiagonalStarts.length; i++) {
         if (playerBlueMoves.includes(columnBDiagonalStarts[i])) {
-            let winOrNot = columnBDiagonalWins[i].every(function(ele){
+            let winOrNot = columnBDiagonalWins[i].every(function (ele) {
                 return playerBlueMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -339,9 +338,9 @@ function checkColumnBDiagonalWinBlue() {
 };
 
 function checkColumnBDiagonalWinRed() {
-    for (i=0; i < columnBDiagonalStarts.length; i++) {
+    for (i = 0; i < columnBDiagonalStarts.length; i++) {
         if (playerRedMoves.includes(columnBDiagonalStarts[i])) {
-            let winOrNot = columnBDiagonalWins[i].every(function(ele){
+            let winOrNot = columnBDiagonalWins[i].every(function (ele) {
                 return playerRedMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -355,10 +354,10 @@ function checkColumnBDiagonalWinRed() {
     }
 };
 
-function checkColumnCDiagonalWinBlue() {   
-    for (i=0; i < columnCDiagonalStarts.length; i++) {
+function checkColumnCDiagonalWinBlue() {
+    for (i = 0; i < columnCDiagonalStarts.length; i++) {
         if (playerBlueMoves.includes(columnCDiagonalStarts[i])) {
-            let winOrNot = columnCDiagonalWins[i].every(function(ele){
+            let winOrNot = columnCDiagonalWins[i].every(function (ele) {
                 return playerBlueMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -373,9 +372,9 @@ function checkColumnCDiagonalWinBlue() {
 };
 
 function checkColumnCDiagonalWinRed() {
-    for (i=0; i < columnCDiagonalStarts.length; i++) {
+    for (i = 0; i < columnCDiagonalStarts.length; i++) {
         if (playerRedMoves.includes(columnCDiagonalStarts[i])) {
-            let winOrNot = columnCDiagonalWins[i].every(function(ele){
+            let winOrNot = columnCDiagonalWins[i].every(function (ele) {
                 return playerRedMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -389,10 +388,10 @@ function checkColumnCDiagonalWinRed() {
     }
 };
 
-function checkColumnDDiagonalWinBlue() {   
-    for (i=0; i < columnDDiagonalStarts.length; i++) {
+function checkColumnDDiagonalWinBlue() {
+    for (i = 0; i < columnDDiagonalStarts.length; i++) {
         if (playerBlueMoves.includes(columnDDiagonalStarts[i])) {
-            let winOrNot = columnDDiagonalWins[i].every(function(ele){
+            let winOrNot = columnDDiagonalWins[i].every(function (ele) {
                 return playerBlueMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -407,9 +406,9 @@ function checkColumnDDiagonalWinBlue() {
 };
 
 function checkColumnDDiagonalWinRed() {
-    for (i=0; i < columnDDiagonalStarts.length; i++) {
+    for (i = 0; i < columnDDiagonalStarts.length; i++) {
         if (playerRedMoves.includes(columnDDiagonalStarts[i])) {
-            let winOrNot = columnDDiagonalWins[i].every(function(ele){
+            let winOrNot = columnDDiagonalWins[i].every(function (ele) {
                 return playerRedMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -423,10 +422,10 @@ function checkColumnDDiagonalWinRed() {
     }
 };
 
-function checkColumnEDiagonalWinBlue() {   
-    for (i=0; i < columnEDiagonalStarts.length; i++) {
+function checkColumnEDiagonalWinBlue() {
+    for (i = 0; i < columnEDiagonalStarts.length; i++) {
         if (playerBlueMoves.includes(columnEDiagonalStarts[i])) {
-            let winOrNot = columnEDiagonalWins[i].every(function(ele){
+            let winOrNot = columnEDiagonalWins[i].every(function (ele) {
                 return playerBlueMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -441,9 +440,9 @@ function checkColumnEDiagonalWinBlue() {
 };
 
 function checkColumnEDiagonalWinRed() {
-    for (i=0; i < columnEDiagonalStarts.length; i++) {
+    for (i = 0; i < columnEDiagonalStarts.length; i++) {
         if (playerRedMoves.includes(columnEDiagonalStarts[i])) {
-            let winOrNot = columnEDiagonalWins[i].every(function(ele){
+            let winOrNot = columnEDiagonalWins[i].every(function (ele) {
                 return playerRedMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -457,10 +456,10 @@ function checkColumnEDiagonalWinRed() {
     }
 };
 
-function checkColumnFDiagonalWinBlue() {   
-    for (i=0; i < columnFDiagonalStarts.length; i++) {
+function checkColumnFDiagonalWinBlue() {
+    for (i = 0; i < columnFDiagonalStarts.length; i++) {
         if (playerBlueMoves.includes(columnFDiagonalStarts[i])) {
-            let winOrNot = columnFDiagonalWins[i].every(function(ele){
+            let winOrNot = columnFDiagonalWins[i].every(function (ele) {
                 return playerBlueMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -475,9 +474,9 @@ function checkColumnFDiagonalWinBlue() {
 };
 
 function checkColumnFDiagonalWinRed() {
-    for (i=0; i < columnFDiagonalStarts.length; i++) {
+    for (i = 0; i < columnFDiagonalStarts.length; i++) {
         if (playerRedMoves.includes(columnFDiagonalStarts[i])) {
-            let winOrNot = columnFDiagonalWins[i].every(function(ele){
+            let winOrNot = columnFDiagonalWins[i].every(function (ele) {
                 return playerRedMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -491,10 +490,10 @@ function checkColumnFDiagonalWinRed() {
     }
 };
 
-function checkColumnGDiagonalWinBlue() {   
-    for (i=0; i < columnGDiagonalStarts.length; i++) {
+function checkColumnGDiagonalWinBlue() {
+    for (i = 0; i < columnGDiagonalStarts.length; i++) {
         if (playerBlueMoves.includes(columnGDiagonalStarts[i])) {
-            let winOrNot = columnGDiagonalWins[i].every(function(ele){
+            let winOrNot = columnGDiagonalWins[i].every(function (ele) {
                 return playerBlueMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -509,9 +508,9 @@ function checkColumnGDiagonalWinBlue() {
 };
 
 function checkColumnGDiagonalWinRed() {
-    for (i=0; i < columnGDiagonalStarts.length; i++) {
+    for (i = 0; i < columnGDiagonalStarts.length; i++) {
         if (playerRedMoves.includes(columnGDiagonalStarts[i])) {
-            let winOrNot = columnGDiagonalWins[i].every(function(ele){
+            let winOrNot = columnGDiagonalWins[i].every(function (ele) {
                 return playerRedMoves.includes(ele);
             })
             if (winOrNot == true) {
@@ -527,7 +526,7 @@ function checkColumnGDiagonalWinRed() {
 
 
 //these functions log the move that the player just selected, then sorts the playermove array
- function logPlayerMoveColumnA() {
+function logPlayerMoveColumnA() {
     if (playerTurn == "red") {
         let moveChosen = columnA[columnAHeight].getAttribute('id');
         playerRedMoves.push(moveChosen);
@@ -539,7 +538,7 @@ function checkColumnGDiagonalWinRed() {
     }
 };
 
- function logPlayerMoveColumnB() {
+function logPlayerMoveColumnB() {
     if (playerTurn == "red") {
         let moveChosen = columnB[columnBHeight].getAttribute('id');
         playerRedMoves.push(moveChosen);
@@ -551,7 +550,7 @@ function checkColumnGDiagonalWinRed() {
     }
 };
 
- function logPlayerMoveColumnC() {
+function logPlayerMoveColumnC() {
     if (playerTurn == "red") {
         let moveChosen = columnC[columnCHeight].getAttribute('id');
         playerRedMoves.push(moveChosen);
@@ -563,7 +562,7 @@ function checkColumnGDiagonalWinRed() {
     }
 };
 
- function logPlayerMoveColumnD() {
+function logPlayerMoveColumnD() {
     if (playerTurn == "red") {
         let moveChosen = columnD[columnDHeight].getAttribute('id');
         playerRedMoves.push(moveChosen);
@@ -575,7 +574,7 @@ function checkColumnGDiagonalWinRed() {
     }
 };
 
- function logPlayerMoveColumnE() {
+function logPlayerMoveColumnE() {
     if (playerTurn == "red") {
         let moveChosen = columnE[columnEHeight].getAttribute('id');
         playerRedMoves.push(moveChosen);
@@ -587,7 +586,7 @@ function checkColumnGDiagonalWinRed() {
     }
 };
 
- function logPlayerMoveColumnF() {
+function logPlayerMoveColumnF() {
     if (playerTurn == "red") {
         let moveChosen = columnF[columnFHeight].getAttribute('id');
         playerRedMoves.push(moveChosen);
@@ -599,7 +598,7 @@ function checkColumnGDiagonalWinRed() {
     }
 };
 
- function logPlayerMoveColumnG() {
+function logPlayerMoveColumnG() {
     if (playerTurn == "red") {
         let moveChosen = columnG[columnGHeight].getAttribute('id');
         playerRedMoves.push(moveChosen);
@@ -636,12 +635,12 @@ function capitalizePlayer() {
 };
 
 //this function creates a 'play again' button to display on the win screen
-function showButton() { 
+function showButton() {
     let newButton = document.createElement('button');
     newButton.setAttribute('id', 'winbutton');
     winScreenContainer.appendChild(newButton);
     newButton.innerText = "Play Again?";
-    newButton.addEventListener('click', function() {
+    newButton.addEventListener('click', function () {
         location.reload();
     });
 };
@@ -651,172 +650,172 @@ function showWinScreen() {
     winScreenContainer.style.height = '100vh';
     leftSupport.style.background = 'black';
     rightSupport.style.background = 'black';
-    confetti({spread: 180});
+    confetti({ spread: 180 });
     winScreenMessage.innerText = `${capitalizePlayer()} Wins!`;
     showButton();
 }
 
 //these functions will highlight the column you have moused over
-columnADOM.addEventListener('mouseenter', function() {
+columnADOM.addEventListener('mouseenter', function () {
     columnADOM.style.backgroundColor = '#edeb79';
 });
-columnADOM.addEventListener('mouseleave', function() {
+columnADOM.addEventListener('mouseleave', function () {
     columnADOM.style.backgroundColor = 'yellow';
 });
 
-columnBDOM.addEventListener('mouseenter', function() {
+columnBDOM.addEventListener('mouseenter', function () {
     columnBDOM.style.backgroundColor = '#edeb79';
 });
-columnBDOM.addEventListener('mouseleave', function() {
+columnBDOM.addEventListener('mouseleave', function () {
     columnBDOM.style.backgroundColor = 'yellow';
 });
 
-columnCDOM.addEventListener('mouseenter', function() {
+columnCDOM.addEventListener('mouseenter', function () {
     columnCDOM.style.backgroundColor = '#edeb79';
 });
-columnCDOM.addEventListener('mouseleave', function() {
+columnCDOM.addEventListener('mouseleave', function () {
     columnCDOM.style.backgroundColor = 'yellow';
 })
 
-columnDDOM.addEventListener('mouseenter', function() {
+columnDDOM.addEventListener('mouseenter', function () {
     columnDDOM.style.backgroundColor = '#edeb79';
 });
-columnDDOM.addEventListener('mouseleave', function() {
+columnDDOM.addEventListener('mouseleave', function () {
     columnDDOM.style.backgroundColor = 'yellow';
 });
 
-columnEDOM.addEventListener('mouseenter', function() {
+columnEDOM.addEventListener('mouseenter', function () {
     columnEDOM.style.backgroundColor = '#edeb79';
 });
-columnEDOM.addEventListener('mouseleave', function() {
+columnEDOM.addEventListener('mouseleave', function () {
     columnEDOM.style.backgroundColor = 'yellow';
 });
 
-columnFDOM.addEventListener('mouseenter', function() {
+columnFDOM.addEventListener('mouseenter', function () {
     columnFDOM.style.backgroundColor = '#edeb79';
 });
-columnFDOM.addEventListener('mouseleave', function() {
+columnFDOM.addEventListener('mouseleave', function () {
     columnFDOM.style.backgroundColor = 'yellow';
 });
 
-columnGDOM.addEventListener('mouseenter', function() {
+columnGDOM.addEventListener('mouseenter', function () {
     columnGDOM.style.backgroundColor = '#edeb79';
 });
-columnGDOM.addEventListener('mouseleave', function() {
+columnGDOM.addEventListener('mouseleave', function () {
     columnGDOM.style.backgroundColor = 'yellow';
 });
 
 //******EVENT LISTENERS******
 
- columnADOM.addEventListener('click', function() {
-     alternatePlayer();
-     logPlayerMoveColumnA()
-     columnA[columnAHeight].style.backgroundColor = playerTurn;
-     if (playerTurn == "blue"){
-         checkPlayerBlueVerticalWin();
-         checkPlayerBlueHorizontalWin();
-         checkColumnADiagonalWinBlue();
-     } else {
-         checkPlayerRedVerticalWin();
-         checkPlayerRedHorizontalWin();
-         checkColumnADiagonalWinRed();
-     };
-     ++columnAHeight;
- });
+columnADOM.addEventListener('click', function () {
+    alternatePlayer();
+    logPlayerMoveColumnA()
+    columnA[columnAHeight].style.backgroundColor = playerTurn;
+    if (playerTurn == "blue") {
+        checkPlayerBlueVerticalWin();
+        checkPlayerBlueHorizontalWin();
+        checkColumnADiagonalWinBlue();
+    } else {
+        checkPlayerRedVerticalWin();
+        checkPlayerRedHorizontalWin();
+        checkColumnADiagonalWinRed();
+    };
+    ++columnAHeight;
+});
 
- columnBDOM.addEventListener('click', function() {
-     alternatePlayer();
-     logPlayerMoveColumnB();
-     columnB[columnBHeight].style.backgroundColor = playerTurn;
-      if (playerTurn == "blue"){
-         checkPlayerBlueVerticalWin();
-         checkPlayerBlueHorizontalWin();
-         checkColumnBDiagonalWinBlue();
-     } else {
-         checkPlayerRedVerticalWin();
-         checkPlayerRedHorizontalWin();
-         checkColumnBDiagonalWinRed();
-     };
-     ++columnBHeight;
- });
+columnBDOM.addEventListener('click', function () {
+    alternatePlayer();
+    logPlayerMoveColumnB();
+    columnB[columnBHeight].style.backgroundColor = playerTurn;
+    if (playerTurn == "blue") {
+        checkPlayerBlueVerticalWin();
+        checkPlayerBlueHorizontalWin();
+        checkColumnBDiagonalWinBlue();
+    } else {
+        checkPlayerRedVerticalWin();
+        checkPlayerRedHorizontalWin();
+        checkColumnBDiagonalWinRed();
+    };
+    ++columnBHeight;
+});
 
- columnCDOM.addEventListener('click', function() {
-     alternatePlayer();
-     logPlayerMoveColumnC();
-     columnC[columnCHeight].style.backgroundColor = playerTurn;
-     if (playerTurn == "blue"){
-         checkPlayerBlueVerticalWin();
-         checkPlayerBlueHorizontalWin();
-         checkColumnCDiagonalWinBlue();
-     } else {
-         checkPlayerRedVerticalWin();
-         checkPlayerRedHorizontalWin();
-         checkColumnCDiagonalWinRed();
-     };
-     ++columnCHeight;
- });
+columnCDOM.addEventListener('click', function () {
+    alternatePlayer();
+    logPlayerMoveColumnC();
+    columnC[columnCHeight].style.backgroundColor = playerTurn;
+    if (playerTurn == "blue") {
+        checkPlayerBlueVerticalWin();
+        checkPlayerBlueHorizontalWin();
+        checkColumnCDiagonalWinBlue();
+    } else {
+        checkPlayerRedVerticalWin();
+        checkPlayerRedHorizontalWin();
+        checkColumnCDiagonalWinRed();
+    };
+    ++columnCHeight;
+});
 
- columnDDOM.addEventListener('click', function() {
-     alternatePlayer();
-     logPlayerMoveColumnD();
-     columnD[columnDHeight].style.backgroundColor = playerTurn;
-     if (playerTurn == "blue"){
-         checkPlayerBlueVerticalWin();
-         checkPlayerBlueHorizontalWin();
-         checkColumnDDiagonalWinBlue();
-     } else {
-         checkPlayerRedVerticalWin();
-         checkPlayerRedHorizontalWin();
-         checkColumnDDiagonalWinRed();
-     };
-     ++columnDHeight;
- });
+columnDDOM.addEventListener('click', function () {
+    alternatePlayer();
+    logPlayerMoveColumnD();
+    columnD[columnDHeight].style.backgroundColor = playerTurn;
+    if (playerTurn == "blue") {
+        checkPlayerBlueVerticalWin();
+        checkPlayerBlueHorizontalWin();
+        checkColumnDDiagonalWinBlue();
+    } else {
+        checkPlayerRedVerticalWin();
+        checkPlayerRedHorizontalWin();
+        checkColumnDDiagonalWinRed();
+    };
+    ++columnDHeight;
+});
 
- columnEDOM.addEventListener('click', function() {
-     alternatePlayer();
-     logPlayerMoveColumnE();
-     columnE[columnEHeight].style.backgroundColor = playerTurn;
-     if (playerTurn == "blue"){
-         checkPlayerBlueVerticalWin();
-         checkPlayerBlueHorizontalWin();
-         checkColumnEDiagonalWinBlue();
-     } else {
-         checkPlayerRedVerticalWin();
-         checkPlayerRedHorizontalWin();
-         checkColumnEDiagonalWinRed();
-     };
-     ++columnEHeight;
- });
+columnEDOM.addEventListener('click', function () {
+    alternatePlayer();
+    logPlayerMoveColumnE();
+    columnE[columnEHeight].style.backgroundColor = playerTurn;
+    if (playerTurn == "blue") {
+        checkPlayerBlueVerticalWin();
+        checkPlayerBlueHorizontalWin();
+        checkColumnEDiagonalWinBlue();
+    } else {
+        checkPlayerRedVerticalWin();
+        checkPlayerRedHorizontalWin();
+        checkColumnEDiagonalWinRed();
+    };
+    ++columnEHeight;
+});
 
- columnFDOM.addEventListener('click', function() {
-     alternatePlayer();
-     logPlayerMoveColumnF();
-     columnF[columnFHeight].style.backgroundColor = playerTurn;
-     if (playerTurn == "blue"){
-         checkPlayerBlueVerticalWin();
-         checkPlayerBlueHorizontalWin();
-         checkColumnFDiagonalWinBlue();
-     } else {
-         checkPlayerRedVerticalWin();
-         checkPlayerRedHorizontalWin();
-         checkColumnFDiagonalWinRed();
-     };
-     ++columnFHeight;
- });
+columnFDOM.addEventListener('click', function () {
+    alternatePlayer();
+    logPlayerMoveColumnF();
+    columnF[columnFHeight].style.backgroundColor = playerTurn;
+    if (playerTurn == "blue") {
+        checkPlayerBlueVerticalWin();
+        checkPlayerBlueHorizontalWin();
+        checkColumnFDiagonalWinBlue();
+    } else {
+        checkPlayerRedVerticalWin();
+        checkPlayerRedHorizontalWin();
+        checkColumnFDiagonalWinRed();
+    };
+    ++columnFHeight;
+});
 
- columnGDOM.addEventListener('click', function() {
-     alternatePlayer();
-     logPlayerMoveColumnG();
-     columnG[columnGHeight].style.backgroundColor = playerTurn;
-     if (playerTurn == "blue"){
-         checkPlayerBlueVerticalWin();
-         checkPlayerBlueHorizontalWin();
-         checkColumnGDiagonalWinBlue();
-     } else {
-         checkPlayerRedVerticalWin();
-         checkPlayerRedHorizontalWin();
-         checkColumnGDiagonalWinRed();
-     };
-     ++columnGHeight;
- });
+columnGDOM.addEventListener('click', function () {
+    alternatePlayer();
+    logPlayerMoveColumnG();
+    columnG[columnGHeight].style.backgroundColor = playerTurn;
+    if (playerTurn == "blue") {
+        checkPlayerBlueVerticalWin();
+        checkPlayerBlueHorizontalWin();
+        checkColumnGDiagonalWinBlue();
+    } else {
+        checkPlayerRedVerticalWin();
+        checkPlayerRedHorizontalWin();
+        checkColumnGDiagonalWinRed();
+    };
+    ++columnGHeight;
+});
 

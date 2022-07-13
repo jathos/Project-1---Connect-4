@@ -9,16 +9,28 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script defer src="js/main.js"></script>
+    <script>
+        async function gameIntro() {
+            let startButton = document.getElementById('startButton');
+            startButton.style.display = 'none';
+            let mainBoard = document.getElementById('mainBoard');
+            mainBoard.style.opacity = '1';
+            let samusIntro = new Audio('https://metroid.retropixel.net/games/metroid3/music/sm08.mp3');
+            samusIntro.play();
+            document.body.style.opacity = '1';
+        };
+    </script>
 </head>
 
 <body>
+    <button id="startButton" onclick="gameIntro()">Play Game</button>
     <div id="wincontainer">
         <h1 id="winmessage"></h1>
     </div>
     <div class="buttoncontainer">
         <h1 class="connect4">CONNECT 4 - Super Metroid Edition</h1>
     </div>
-    <div class="mainboard">
+    <div class="mainboard" id="mainBoard">
         <div class="circlecontainers" id="columnA">
             <div class="circle" id="a6"></div>
             <div class="circle" id="a5"></div>
