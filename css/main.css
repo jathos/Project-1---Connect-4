@@ -1,3 +1,13 @@
+@font-face {
+    font-family: MetroidPixel;
+    src: url(super-metroid-menu.otf);
+}
+
+@font-face {
+    font-family: MetroidTitle;
+    src: url(super-metroid-title.otf);
+}
+
 body {
     background-image: url("SuperMetroidCrateriaRain.gif");
     background-size: cover;
@@ -113,8 +123,19 @@ button {
 }
 
 .connect4 {
-    color: orange;
-    font-size: 20pt;
+    color: #FFD548;
+    font-size: 40pt;
+    font-family: MetroidTitle;
+    text-shadow: 4px 8px 6px #702D3D;
     letter-spacing: 4px;
-    margin: 0;
+    margin: 0px;
+    text-align: center;
+}
+
+.connect4pt2 {
+    color: #FFA93A;
+    font-size: 60pt;
+    font-family: MetroidTitle;
+    text-shadow: 4px 8px 6px #702D3D;
+    letter-spacing: 4px;
 }
