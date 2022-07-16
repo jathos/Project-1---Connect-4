@@ -23,12 +23,13 @@
 </head>
 
 <body>
-    <button id="startButton" onclick="gameIntro()">Play Game</button>
+    <audio controls src="https://metroid.retropixel.net/games/metroid3/music/sm09.mp3" loop></audio>
     <div id="wincontainer">
         <h1 id="winmessage"></h1>
     </div>
     <div class="buttoncontainer">
         <h1 class="connect4">Super<br><span class="connect4pt2">Connect 4</span></h1>
+        <button id="startButton" onclick="gameIntro()">PLAY GAME</button>
     </div>
     <div class="mainboard" id="mainBoard">
         <div class="circlecontainers" id="columnA">
@@ -88,7 +89,6 @@
             <div class="circle" id="g1"></div>
         </div>
     </div>
-    <audio controls src="https://metroid.retropixel.net/games/metroid3/music/sm09.mp3" loop>
 </body>
 
 </html>
