@@ -819,3 +819,8 @@ columnGDOM.addEventListener('click', function () {
     ++columnGHeight;
 });
 
+function changeBackground() {
+    const phendranaMusic = new Audio('https://metroid.retropixel.net/games/mprime/music/mp27.mp3');
+    document.body.style.backgroundImage = "url('css/MetroidPrimePhendrana.gif')";
+    phendranaMusic.play();
+};

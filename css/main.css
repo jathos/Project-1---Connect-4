@@ -146,3 +146,18 @@ body {
     text-shadow: 4px 8px 6px #702D3D;
     letter-spacing: 4px;
 }
+
+.button-right {
+    position: absolute;
+    font-family: MetroidPixel;
+    border: solid;
+    border-color: #00FF09;
+    border-width: 1px;
+    background-color: transparent;
+    color: #00FF09;
+    height: 50px;
+    width: 30px;
+    right: 50px;
+    font-size: 20pt;
+    top: 50vh;
+}
