@@ -202,6 +202,8 @@ const columnGDiagonalWins = [
     ["f5", "e4", "d3"]
 ];
 
+currentBackground = "crateria";
+
 
 //these variables are used in the showWinScreen function
 const winScreenContainer = document.getElementById('wincontainer');
@@ -819,8 +821,30 @@ columnGDOM.addEventListener('click', function () {
     ++columnGHeight;
 });
 
+
+//these are my post-graduation updates to the code to make it Metroid themed
+const phendranaMusic = new Audio('https://metroid.retropixel.net/games/mprime/music/mp27.mp3');
+const crateriaMusic = new Audio('https://metroid.retropixel.net/games/metroid3/music/sm09.mp3');
+const leftButton = document.getElementById('button-left');
+const rightButton = document.getElementById('button-right');
+const audioPlayer = document.getElementById('crateria-audio');
+
 function changeBackground() {
-    const phendranaMusic = new Audio('https://metroid.retropixel.net/games/mprime/music/mp27.mp3');
-    document.body.style.backgroundImage = "url('css/MetroidPrimePhendrana.gif')";
-    phendranaMusic.play();
+    if (currentBackground == "crateria") {
+        document.body.style.backgroundImage = "url('css/MetroidPrimePhendrana.gif')";
+        phendranaMusic.play();
+        audioPlayer.pause();
+        crateriaMusic.pause();
+        audioPlayer.style.display = 'none';
+        leftButton.style.display = 'block';
+        rightButton.style.display = 'none';
+        currentBackground = "phendrana";
+    } else {
+        phendranaMusic.pause();
+        crateriaMusic.play();
+        document.body.style.backgroundImage = "url('css/SuperMetroidCrateriaRain.gif')";
+        leftButton.style.display = 'none';
+        rightButton.style.display = 'block';
+        currentBackground = "crateria";
+    };
 };

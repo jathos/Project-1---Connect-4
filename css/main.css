@@ -155,9 +155,25 @@ body {
     border-width: 1px;
     background-color: transparent;
     color: #00FF09;
-    height: 50px;
+    height: 70px;
     width: 30px;
     right: 50px;
     font-size: 20pt;
     top: 50vh;
+}
+
+.button-left {
+    position: absolute;
+    font-family: MetroidPixel;
+    border: solid;
+    border-color: #00FF09;
+    border-width: 1px;
+    background-color: transparent;
+    color: #00FF09;
+    height: 70px;
+    width: 30px;
+    left: 50px;
+    font-size: 20pt;
+    top: 50vh;
+    display: none;
 }
