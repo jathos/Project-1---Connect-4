@@ -203,7 +203,7 @@ const columnGDiagonalWins = [
 ];
 
 currentBackground = "crateria";
-
+playerImage = "url('css/samuslogo.jpg')"
 
 //these variables are used in the showWinScreen function
 const winScreenContainer = document.getElementById('wincontainer');
@@ -616,8 +616,10 @@ function logPlayerMoveColumnG() {
 function alternatePlayer() {
     if (playerTurn == "red") {
         playerTurn = "blue";
+        playerImage = "url('css/metroidlogo.jpg')"
     } else {
         playerTurn = "red";
+        playerImage = "url('css/samuslogo.jpg')"
     }
 };
 
@@ -712,7 +714,7 @@ columnGDOM.addEventListener('mouseleave', function () {
 columnADOM.addEventListener('click', function () {
     alternatePlayer();
     logPlayerMoveColumnA()
-    columnA[columnAHeight].style.backgroundColor = playerTurn;
+    columnA[columnAHeight].style.backgroundImage = playerImage;
     if (playerTurn == "blue") {
         checkPlayerBlueVerticalWin();
         checkPlayerBlueHorizontalWin();
@@ -728,7 +730,7 @@ columnADOM.addEventListener('click', function () {
 columnBDOM.addEventListener('click', function () {
     alternatePlayer();
     logPlayerMoveColumnB();
-    columnB[columnBHeight].style.backgroundColor = playerTurn;
+    columnB[columnBHeight].style.backgroundImage = playerImage;
     if (playerTurn == "blue") {
         checkPlayerBlueVerticalWin();
         checkPlayerBlueHorizontalWin();
@@ -744,7 +746,7 @@ columnBDOM.addEventListener('click', function () {
 columnCDOM.addEventListener('click', function () {
     alternatePlayer();
     logPlayerMoveColumnC();
-    columnC[columnCHeight].style.backgroundColor = playerTurn;
+    columnC[columnCHeight].style.backgroundImage = playerImage;
     if (playerTurn == "blue") {
         checkPlayerBlueVerticalWin();
         checkPlayerBlueHorizontalWin();
@@ -760,7 +762,7 @@ columnCDOM.addEventListener('click', function () {
 columnDDOM.addEventListener('click', function () {
     alternatePlayer();
     logPlayerMoveColumnD();
-    columnD[columnDHeight].style.backgroundColor = playerTurn;
+    columnD[columnDHeight].style.backgroundImage = playerImage;
     if (playerTurn == "blue") {
         checkPlayerBlueVerticalWin();
         checkPlayerBlueHorizontalWin();
@@ -776,7 +778,7 @@ columnDDOM.addEventListener('click', function () {
 columnEDOM.addEventListener('click', function () {
     alternatePlayer();
     logPlayerMoveColumnE();
-    columnE[columnEHeight].style.backgroundColor = playerTurn;
+    columnE[columnEHeight].style.backgroundImage = playerImage;
     if (playerTurn == "blue") {
         checkPlayerBlueVerticalWin();
         checkPlayerBlueHorizontalWin();
@@ -792,7 +794,7 @@ columnEDOM.addEventListener('click', function () {
 columnFDOM.addEventListener('click', function () {
     alternatePlayer();
     logPlayerMoveColumnF();
-    columnF[columnFHeight].style.backgroundColor = playerTurn;
+    columnF[columnFHeight].style.backgroundImage = playerImage;
     if (playerTurn == "blue") {
         checkPlayerBlueVerticalWin();
         checkPlayerBlueHorizontalWin();
@@ -808,7 +810,7 @@ columnFDOM.addEventListener('click', function () {
 columnGDOM.addEventListener('click', function () {
     alternatePlayer();
     logPlayerMoveColumnG();
-    columnG[columnGHeight].style.backgroundColor = playerTurn;
+    columnG[columnGHeight].style.backgroundImage = playerImage;
     if (playerTurn == "blue") {
         checkPlayerBlueVerticalWin();
         checkPlayerBlueHorizontalWin();
