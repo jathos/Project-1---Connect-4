@@ -660,54 +660,54 @@ function showWinScreen() {
 }
 
 //these functions will highlight the column you have moused over
-columnADOM.addEventListener('mouseenter', function () {
-    columnADOM.style.backgroundColor = '#edeb79';
-});
-columnADOM.addEventListener('mouseleave', function () {
-    columnADOM.style.backgroundColor = 'yellow';
-});
+// columnADOM.addEventListener('mouseenter', function () {
+//     columnADOM.style.backgroundColor = '#edeb79';
+// });
+// columnADOM.addEventListener('mouseleave', function () {
+//     columnADOM.style.backgroundColor = 'black';
+// });
 
-columnBDOM.addEventListener('mouseenter', function () {
-    columnBDOM.style.backgroundColor = '#edeb79';
-});
-columnBDOM.addEventListener('mouseleave', function () {
-    columnBDOM.style.backgroundColor = 'yellow';
-});
+// columnBDOM.addEventListener('mouseenter', function () {
+//     columnBDOM.style.backgroundColor = '#edeb79';
+// });
+// columnBDOM.addEventListener('mouseleave', function () {
+//     columnBDOM.style.backgroundColor = 'yellow';
+// });
 
-columnCDOM.addEventListener('mouseenter', function () {
-    columnCDOM.style.backgroundColor = '#edeb79';
-});
-columnCDOM.addEventListener('mouseleave', function () {
-    columnCDOM.style.backgroundColor = 'yellow';
-})
+// columnCDOM.addEventListener('mouseenter', function () {
+//     columnCDOM.style.backgroundColor = '#edeb79';
+// });
+// columnCDOM.addEventListener('mouseleave', function () {
+//     columnCDOM.style.backgroundColor = 'yellow';
+// })
 
-columnDDOM.addEventListener('mouseenter', function () {
-    columnDDOM.style.backgroundColor = '#edeb79';
-});
-columnDDOM.addEventListener('mouseleave', function () {
-    columnDDOM.style.backgroundColor = 'yellow';
-});
+// columnDDOM.addEventListener('mouseenter', function () {
+//     columnDDOM.style.backgroundColor = '#edeb79';
+// });
+// columnDDOM.addEventListener('mouseleave', function () {
+//     columnDDOM.style.backgroundColor = 'yellow';
+// });
 
-columnEDOM.addEventListener('mouseenter', function () {
-    columnEDOM.style.backgroundColor = '#edeb79';
-});
-columnEDOM.addEventListener('mouseleave', function () {
-    columnEDOM.style.backgroundColor = 'yellow';
-});
+// columnEDOM.addEventListener('mouseenter', function () {
+//     columnEDOM.style.backgroundColor = '#edeb79';
+// });
+// columnEDOM.addEventListener('mouseleave', function () {
+//     columnEDOM.style.backgroundColor = 'yellow';
+// });
 
-columnFDOM.addEventListener('mouseenter', function () {
-    columnFDOM.style.backgroundColor = '#edeb79';
-});
-columnFDOM.addEventListener('mouseleave', function () {
-    columnFDOM.style.backgroundColor = 'yellow';
-});
+// columnFDOM.addEventListener('mouseenter', function () {
+//     columnFDOM.style.backgroundColor = '#edeb79';
+// });
+// columnFDOM.addEventListener('mouseleave', function () {
+//     columnFDOM.style.backgroundColor = 'yellow';
+// });
 
-columnGDOM.addEventListener('mouseenter', function () {
-    columnGDOM.style.backgroundColor = '#edeb79';
-});
-columnGDOM.addEventListener('mouseleave', function () {
-    columnGDOM.style.backgroundColor = 'yellow';
-});
+// columnGDOM.addEventListener('mouseenter', function () {
+//     columnGDOM.style.backgroundColor = '#edeb79';
+// });
+// columnGDOM.addEventListener('mouseleave', function () {
+//     columnGDOM.style.backgroundColor = 'yellow';
+// });
 
 //******EVENT LISTENERS******
 

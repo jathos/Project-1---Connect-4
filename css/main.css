@@ -30,7 +30,7 @@ body {
 .mainboard {
     display: flex;
     flex-direction: row;
-    background-color: yellow;
+    background-color: black;
     width: 40%;
     height: 490px;
     justify-content: space-evenly;
@@ -38,11 +38,20 @@ body {
     padding: 10px;
     opacity: 0;
     transition: opacity 7s;
+    border: 2px dashed #00FF09;
 }
 
 @media only screen and (min-width: 1920px) {
     .mainboard {
         width: 675px;
+        height: 575px;
+        margin-top: 100px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .mainboard {
+        width: 85%;
         height: 575px;
         margin-top: 100px;
     }
@@ -57,6 +66,9 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    border: solid;
+    border-width: 1px;
+    border-color: #00FF09;
 }
 
 .circlecontainers {
@@ -64,6 +76,10 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     width: 11%;
+}
+
+.circlecontainers:hover {
+    background-color: #535251fd;
 }
 
 #leftsupport {
@@ -179,4 +195,40 @@ body {
     font-size: 20pt;
     top: 50vh;
     display: none;
+}
+
+@media only screen and (max-width: 650px) {
+    .button-right {
+        position: static;
+        margin-left: 45vw;
+        margin-top: 25px;
+        font-size: 25pt;
+        border-width: 3px;
+        width: 45px;
+    }
+
+    .button-left {
+        position: static;
+        margin-left: 45vw;
+        margin-top: 25px;
+        font-size: 25pt;
+        border-width: 3px;
+        width: 45px;
+        background-color: black;
+    }
+
+    #startButton {
+        width: 30vw;
+        height: 10vh;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .connect4 {
+        font-size: 32pt;
+    }
+
+    .connect4pt2 {
+        font-size: 42pt;
+    }
 }
