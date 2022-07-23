@@ -208,8 +208,8 @@ playerImage = "url('css/samuslogo.jpg')"
 //these variables are used in the showWinScreen function
 const winScreenContainer = document.getElementById('wincontainer');
 const winScreenMessage = document.getElementById('winmessage');
-const leftSupport = document.getElementById('leftsupport');
-const rightSupport = document.getElementById('rightsupport');
+// const leftSupport = document.getElementById('leftsupport');
+// const rightSupport = document.getElementById('rightsupport');
 
 
 
@@ -639,11 +639,12 @@ function capitalizePlayer() {
 };
 
 //this function creates a 'play again' button to display on the win screen
+winMessageContainer = document.getElementById('winmessagecontainer');
 function showButton() {
     let newButton = document.createElement('button');
     newButton.setAttribute('id', 'winbutton');
-    winScreenContainer.appendChild(newButton);
-    newButton.innerText = "Play Again?";
+    winMessageContainer.appendChild(newButton);
+    newButton.innerText = "PLAY AGAIN?";
     newButton.addEventListener('click', function () {
         location.reload();
     });
@@ -651,63 +652,17 @@ function showButton() {
 
 //this function shows the win screen
 function showWinScreen() {
-    winScreenContainer.style.height = '100vh';
-    leftSupport.style.background = 'black';
-    rightSupport.style.background = 'black';
+    mainBoard.style.display = 'none';
+    winScreenContainer.style.display = 'flex';
+    winMessageContainer.style.display = 'flex';
     confetti({ spread: 180 });
-    winScreenMessage.innerText = `${capitalizePlayer()} Wins!`;
+    if (playerTurn == "blue") {
+        winScreenMessage.innerText = `Metroids Win!`;
+    } else {
+        winScreenMessage.innerText = 'Samus Wins!';
+    }
     showButton();
 }
-
-//these functions will highlight the column you have moused over
-// columnADOM.addEventListener('mouseenter', function () {
-//     columnADOM.style.backgroundColor = '#edeb79';
-// });
-// columnADOM.addEventListener('mouseleave', function () {
-//     columnADOM.style.backgroundColor = 'black';
-// });
-
-// columnBDOM.addEventListener('mouseenter', function () {
-//     columnBDOM.style.backgroundColor = '#edeb79';
-// });
-// columnBDOM.addEventListener('mouseleave', function () {
-//     columnBDOM.style.backgroundColor = 'yellow';
-// });
-
-// columnCDOM.addEventListener('mouseenter', function () {
-//     columnCDOM.style.backgroundColor = '#edeb79';
-// });
-// columnCDOM.addEventListener('mouseleave', function () {
-//     columnCDOM.style.backgroundColor = 'yellow';
-// })
-
-// columnDDOM.addEventListener('mouseenter', function () {
-//     columnDDOM.style.backgroundColor = '#edeb79';
-// });
-// columnDDOM.addEventListener('mouseleave', function () {
-//     columnDDOM.style.backgroundColor = 'yellow';
-// });
-
-// columnEDOM.addEventListener('mouseenter', function () {
-//     columnEDOM.style.backgroundColor = '#edeb79';
-// });
-// columnEDOM.addEventListener('mouseleave', function () {
-//     columnEDOM.style.backgroundColor = 'yellow';
-// });
-
-// columnFDOM.addEventListener('mouseenter', function () {
-//     columnFDOM.style.backgroundColor = '#edeb79';
-// });
-// columnFDOM.addEventListener('mouseleave', function () {
-//     columnFDOM.style.backgroundColor = 'yellow';
-// });
-
-// columnGDOM.addEventListener('mouseenter', function () {
-//     columnGDOM.style.backgroundColor = '#edeb79';
-// });
-// columnGDOM.addEventListener('mouseleave', function () {
-//     columnGDOM.style.backgroundColor = 'yellow';
-// });
 
 //******EVENT LISTENERS******
 

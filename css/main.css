@@ -25,6 +25,7 @@ body {
     border-color: #00FF09;
     text-shadow: 0px 0px 4px #145416;
     margin-top: 40px;
+    cursor: pointer;
 }
 
 .mainboard {
@@ -116,32 +117,50 @@ body {
 }
 
 #wincontainer {
-    background: black;
+    display: none;
+    height: 20vh;
+    margin-top: 10vh;
+    flex-direction: column;
+    align-items: center;
+    gap: 10vh;
 }
 
 #winmessage {
-    color: white;
-    position: relative;
-    top: 50%;
-    left: 43%;
+    color: #FFD548;
+    font-family: MetroidTitle;
+    text-shadow: 4px 8px 6px #702D3D;
+    letter-spacing: 4px;
+    animation: resize 2s infinite
+}
+
+@keyframes resize {
+    0% {
+        font-size: 20pt;
+    }
+
+    50% {
+        font-size: 40pt;
+    }
+
+    100% {
+        font-size: 20pt;
+    }
+}
+
+#winmessagecontainer {
+    display: none;
+    justify-content: center;
 }
 
 #winbutton {
-    position: relative;
     height: 30px;
     width: 25%;
-    font-size: 15pt;
-    font-weight: bold;
-    top: 57%;
-    left: 35%;
+    color: #00FF09;
+    font-family: MetroidPixel;
     cursor: pointer;
-    background: yellow;
-    border: solid;
-    border-width: 3px;
-    border-color: blue;
-    opacity: .7;
-    padding: 0 5px 4px 5px;
-    align-items: center;
+    background: black;
+    border: 1px solid #00FF09;
+    text-shadow: 0px 0px 4px #145416;
 }
 
 #winbutton:hover {
@@ -179,6 +198,7 @@ body {
     right: 50px;
     font-size: 20pt;
     top: 50vh;
+    cursor: pointer;
 }
 
 .button-left {
@@ -195,6 +215,7 @@ body {
     font-size: 20pt;
     top: 50vh;
     display: none;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 650px) {
